@@ -61,7 +61,7 @@ const Card: React.FC<CardProps> = ({
   return (
     <div
       ref={container}
-      className="min-h-[350px] md:min-h-screen flex items-center justify-center sticky top-0 py-4 "
+      className="flex items-center justify-center sticky top-0 pb-10 sm:pb-10 md:pb-12 lg:pb-10 xl:pb-14 2xl:pb-16"
     >
       <motion.div
         style={{
@@ -158,12 +158,12 @@ export function AboutGroupSection() {
   });
 
   return (
-    <section ref={container} className="relative">
+    <section ref={container} className="relative py-12 sm:py-16 md:py-20">
       <GeometricBackground className="bg-gradient-to-b from-white via-primary-50/30 to-white absolute inset-0">
         <div />
       </GeometricBackground>
       {/* Header Section */}
-      <div className="relative z-10 pt-12 sm:pt-16 md:pt-20 pb-4 sm:pb-6 md:pb-10">
+      <div className="relative z-10 pb-16 sm:pb-14 md:pb-16 lg:pb-14 xl:pb-18 2xl:pb-20">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 text-center">
           <BlurFade delay={0.1}>
             <motion.h2
