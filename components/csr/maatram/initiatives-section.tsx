@@ -1,155 +1,105 @@
 "use client";
-import { motion } from "motion/react";
-import { BlurFade } from "@/components/ui/blur-fade";
-import {
-  IconSchool,
-  IconStethoscope,
-  IconBook,
-  IconHeartHandshake,
-  IconAmbulance,
-  IconUsers,
-} from "@tabler/icons-react";
 
-const initiatives = [
-  {
-    icon: IconSchool,
-    title: "Educational Programs",
-    description:
-      "Scholarships, tutoring, and educational resources for underprivileged students to ensure quality education for all.",
-    color: "from-blue-500 to-blue-600",
-    features: [
-      "Merit-based scholarships",
-      "Free tutoring programs",
-      "Educational materials distribution",
-      "Career guidance workshops",
-    ],
-  },
-  {
-    icon: IconBook,
-    title: "Skill Development",
-    description:
-      "Vocational training and skill development programs to empower youth with employable skills and entrepreneurship opportunities.",
-    color: "from-primary-500 to-primary-600",
-    features: [
-      "Vocational training courses",
-      "Computer literacy programs",
-      "Entrepreneurship workshops",
-      "Job placement assistance",
-    ],
-  },
-  {
-    icon: IconStethoscope,
-    title: "Healthcare Services",
-    description:
-      "Free medical camps, health screenings, and awareness programs to ensure accessible healthcare for all community members.",
-    color: "from-green-500 to-green-600",
-    features: [
-      "Free medical camps",
-      "Health screening programs",
-      "Medicine distribution",
-      "Health awareness campaigns",
-    ],
-  },
-  {
-    icon: IconAmbulance,
-    title: "Emergency Medical Aid",
-    description:
-      "24/7 emergency medical assistance and ambulance services for those in need during critical situations.",
-    color: "from-red-500 to-red-600",
-    features: [
-      "Emergency ambulance service",
-      "Critical care support",
-      "Medical emergency fund",
-      "Hospital coordination",
-    ],
-  },
-  {
-    icon: IconHeartHandshake,
-    title: "Community Welfare",
-    description:
-      "Supporting vulnerable sections of society through food distribution, shelter assistance, and social welfare programs.",
-    color: "from-purple-500 to-purple-600",
-    features: [
-      "Food distribution drives",
-      "Shelter assistance",
-      "Elderly care programs",
-      "Women empowerment initiatives",
-    ],
-  },
-  {
-    icon: IconUsers,
-    title: "Youth Development",
-    description:
-      "Mentorship programs, sports activities, and leadership training to nurture the next generation of community leaders.",
-    color: "from-orange-500 to-orange-600",
-    features: [
-      "Mentorship programs",
-      "Sports & recreation",
-      "Leadership training",
-      "Cultural activities",
-    ],
-  },
-];
+import { Card } from "@/components/ui/card";
+import {
+  GraduationCap,
+  Stethoscope,
+  BookHeart,
+  Utensils,
+  Users2,
+  Lightbulb,
+} from "lucide-react";
 
 export function InitiativesSection() {
+  const initiatives = [
+    {
+      icon: GraduationCap,
+      title: "Scholarship Programs",
+      description:
+        "Supporting deserving students with educational scholarships and financial aid.",
+      gradient:
+        "from-purple-100 to-purple-200 dark:from-purple-900/50 dark:to-purple-800/50",
+    },
+    {
+      icon: Stethoscope,
+      title: "Medical Camps",
+      description:
+        "Organizing free health checkups and medical camps in rural areas.",
+      gradient:
+        "from-green-100 to-green-200 dark:from-green-900/50 dark:to-green-800/50",
+    },
+    {
+      icon: BookHeart,
+      title: "Learning Resources",
+      description:
+        "Providing books, supplies, and digital learning tools to students.",
+      gradient:
+        "from-red-100 to-red-200 dark:from-red-900/50 dark:to-red-800/50",
+    },
+    {
+      icon: Utensils,
+      title: "Nutrition Programs",
+      description:
+        "Ensuring proper nutrition for children through meal programs.",
+      gradient:
+        "from-blue-100 to-blue-200 dark:from-blue-900/50 dark:to-blue-800/50",
+    },
+    {
+      icon: Users2,
+      title: "Skill Development",
+      description:
+        "Vocational training programs for youth and women empowerment.",
+      gradient:
+        "from-yellow-100 to-yellow-200 dark:from-yellow-900/50 dark:to-yellow-800/50",
+    },
+    {
+      icon: Lightbulb,
+      title: "Awareness Campaigns",
+      description: "Health and education awareness programs in communities.",
+      gradient:
+        "from-pink-100 to-pink-200 dark:from-pink-900/50 dark:to-pink-800/50",
+    },
+  ];
+
   return (
-    <section
-      id="initiatives"
-      className="py-20 bg-gradient-to-b from-background to-primary-50/30 dark:from-background dark:to-primary-950/10"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <BlurFade delay={0.1}>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+    <section id="initiatives" className="py-20 md:py-28">
+      <div className="container">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-4xl font-semibold md:text-5xl text-foreground mb-4">
               Our Initiatives
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Comprehensive programs designed to create lasting positive impact
-              in education, healthcare, and community welfare
+            <p className="text-muted-foreground">
+              Comprehensive programs designed to create lasting impact in
+              education and healthcare, supporting communities across Madurai
+              and beyond.
             </p>
           </div>
-        </BlurFade>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {initiatives.map((initiative, index) => (
-            <BlurFade key={initiative.title} delay={0.2 + index * 0.1}>
-              <motion.div
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="h-full p-8 bg-white dark:bg-base-900 rounded-2xl border border-border shadow-lg hover:shadow-2xl transition-all"
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {initiatives.map((initiative, index) => (
+              <Card
+                key={index}
+                className={`relative flex flex-col justify-between h-[280px] w-full overflow-hidden rounded-3xl p-8 bg-gradient-to-r ${initiative.gradient} border-0 shadow-lg hover:shadow-xl transition-shadow`}
               >
-                <div
-                  className={`w-16 h-16 bg-gradient-to-br ${initiative.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
-                >
-                  <initiative.icon className="w-8 h-8 text-white" />
+                {/* Card Content */}
+                <div className="z-10 flex flex-col items-start text-left">
+                  <initiative.icon className="mb-4 h-12 w-12 text-foreground" />
                 </div>
-
-                <h3 className="text-2xl font-bold text-foreground mb-4">
-                  {initiative.title}
-                </h3>
-
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  {initiative.description}
-                </p>
-
-                <div className="space-y-3">
-                  <p className="text-sm font-semibold text-primary-600 uppercase tracking-wide">
-                    Key Features:
+                <div className="z-10">
+                  <h3 className="mb-2 text-lg font-semibold uppercase tracking-wider">
+                    {initiative.title}
+                  </h3>
+                  <p className="text-sm text-foreground/70">
+                    {initiative.description}
                   </p>
-                  <ul className="space-y-2">
-                    {initiative.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-start gap-2 text-sm text-muted-foreground"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary-500 mt-1.5 flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
                 </div>
-              </motion.div>
-            </BlurFade>
-          ))}
+
+                {/* Subtle overlay for better text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </section>
