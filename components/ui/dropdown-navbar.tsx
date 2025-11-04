@@ -64,6 +64,16 @@ export const DropdownNavbar = ({ className }: DropdownNavbarProps) => {
       ],
     },
     {
+      name: "CSR Activities",
+      link: "/csr/maatram",
+      submenu: [
+        {
+          name: "MaatRaM Educational and Medical Trust",
+          link: "/csr/maatram",
+        },
+      ],
+    },
+    {
       name: "Highlights",
       link: "/highlights",
       submenu: [

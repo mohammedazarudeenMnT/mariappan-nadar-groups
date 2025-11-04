@@ -26,16 +26,38 @@ import Image from "next/image";
 
 const divisions = [
   {
+    id: "corporate",
+    icon: IconBuilding,
+    logo: "/Mariyappa Group-logo-blk.png",
+    name: "Corporate Office",
+    tagline: "Karuppayurani",
+    description:
+      "Our main corporate office managing all business operations and strategic initiatives",
+    phone: "8220333888",
+    email: "info@mngroup.com",
+    address:
+      "456/1, Sivagangai Road, Opp to Vikram Hospital, Ring Road Junction, Madurai 625020",
+    mapUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.5!2d78.11!3d9.93!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNTUnNDguMCJOIDc4wrAwNiczNi4wIkU!5e0!3m2!1sen!2sin!4v1234567890",
+    gradient: "from-primary-500 via-primary-600 to-primary-700",
+    customers: 2000,
+    projects: 5000,
+  },
+  {
     id: "construction",
     icon: IconBuilding,
     logo: "/images/construction/MNBS Logo background erased.png",
     name: "Steel & Construction",
-    tagline: "Building Tomorrow",
+    tagline: "Building Materials",
     description:
       "Premium TMT bars, mild steel, cement, and construction materials",
-    phone: "+91 XXX XXX XXXX",
+    phone: "8940233833",
     email: "construction@mngroup.com",
-    gradient: "from-primary-500 via-primary-600 to-primary-700",
+    address:
+      "4/467, Madurai Theni Road, Vadivel Nagar, Nagamalai Puthukottai, Madurai 625019",
+    mapUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.0!2d78.1!3d9.95!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNTcnMDAuMCJOIDc4wrAwNicwMC4wIkU!5e0!3m2!1sen!2sin!4v1234567890",
+    gradient: "from-primary-600 via-primary-700 to-primary-800",
     customers: 500,
     projects: 1200,
   },
@@ -46,8 +68,12 @@ const divisions = [
     name: "Mathi Mobiles",
     tagline: "Stay Connected",
     description: "Latest smartphones, accessories, and expert repair services",
-    phone: "+91 YYY YYY YYYY",
+    phone: "8883233355",
     email: "mobiles@mngroup.com",
+    address:
+      "Ground Floor, SMT Square, Opp to Nirmala School, 137/1-4, Kamarajar Salai, Madurai 625009",
+    mapUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.8!2d78.12!3d9.92!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNTUnMTIuMCJOIDc4wrAwNycxMi4wIkU!5e0!3m2!1sen!2sin!4v1234567890",
     gradient: "from-primary-400 via-primary-500 to-primary-600",
     customers: 1000,
     projects: 5000,
@@ -55,21 +81,42 @@ const divisions = [
   {
     id: "wellness",
     icon: IconHeartHandshake,
-    logo: null,
+    logo: "/images/himalaya_wellness/himalaya.avif",
     name: "Himalaya Wellness",
     tagline: "Live Healthy",
     description: "Trusted healthcare and wellness products for every family",
-    phone: "+91 ZZZ ZZZ ZZZZ",
+    phone: "9087733355",
     email: "wellness@mngroup.com",
-    gradient: "from-primary-600 via-primary-700 to-primary-800",
+    address:
+      "Ground Floor, SMT Square, Opp to Nirmala School, 137/1-4, Kamarajar Salai, Madurai 625009",
+    mapUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.8!2d78.12!3d9.92!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNTUnMTIuMCJOIDc4wrAwNycxMi4wIkU!5e0!3m2!1sen!2sin!4v1234567890",
+    gradient: "from-primary-500 via-primary-600 to-primary-700",
     customers: 5000,
     projects: 10000,
+  },
+  {
+    id: "maatram",
+    icon: IconHeartHandshake,
+    logo: "/images/Maatram/MAATRAM HORIZONTAL LOGO.jpg",
+    name: "MaatRaM",
+    tagline: "Educational & Medical Trust",
+    description:
+      "Dedicated to educational and medical initiatives for community welfare",
+    phone: "8300033833",
+    email: "maatram@mngroup.com",
+    address:
+      "456/1, Sivagangai Road, Opp to Vikram Hospital, Ring Road Junction, Madurai 625020",
+    mapUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.5!2d78.11!3d9.93!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNTUnNDguMCJOIDc4wrAwNiczNi4wIkU!5e0!3m2!1sen!2sin!4v1234567890",
+    gradient: "from-primary-600 via-primary-700 to-primary-800",
+    customers: 3000,
+    projects: 8000,
   },
 ];
 
 export function ContactClient() {
-  const [selectedDivision, setSelectedDivision] =
-    useState<string>("construction");
+  const [selectedDivision, setSelectedDivision] = useState<string>("corporate");
   const currentDivision =
     divisions.find((d) => d.id === selectedDivision) || divisions[0];
   const Icon = currentDivision.icon;
@@ -261,29 +308,38 @@ export function ContactClient() {
                     icon: IconPhone,
                     label: "Phone",
                     value: currentDivision.phone,
+                    href: `tel:${currentDivision.phone}`,
                     color: "from-primary-500 to-primary-600",
                   },
                   {
                     icon: IconMail,
                     label: "Email",
                     value: currentDivision.email,
+                    href: `mailto:${currentDivision.email}`,
                     color: "from-primary-600 to-primary-700",
                   },
                   {
                     icon: IconMapPin,
                     label: "Location",
-                    value: "Madurai, Tamil Nadu",
+                    value: currentDivision.address,
+                    href: null,
                     color: "from-primary-400 to-primary-500",
                   },
                   {
                     icon: IconClock,
                     label: "Hours",
                     value: "Mon-Sat: 9AM - 6PM",
+                    href: null,
                     color: "from-primary-500 to-primary-700",
                   },
                 ].map((item, index) => (
                   <BlurFade key={index} delay={0.3 + index * 0.1}>
-                    <Card className="p-6 hover:shadow-xl transition-all cursor-pointer group">
+                    <Card
+                      className="p-6 hover:shadow-xl transition-all cursor-pointer group"
+                      onClick={() =>
+                        item.href && window.open(item.href, "_self")
+                      }
+                    >
                       <div className="flex items-start gap-4">
                         <div
                           className={cn(
@@ -297,7 +353,7 @@ export function ContactClient() {
                           <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
                             {item.label}
                           </p>
-                          <p className="font-bold text-foreground">
+                          <p className="font-bold text-foreground text-sm">
                             {item.value}
                           </p>
                         </div>
@@ -425,16 +481,26 @@ export function ContactClient() {
             {/* Map */}
             <BlurFade delay={0.5}>
               <Card className="mt-8 overflow-hidden">
+                <div className="p-4 border-b border-border">
+                  <h4 className="font-bold text-foreground flex items-center gap-2">
+                    <IconMapPin className="h-5 w-5 text-primary-500" />
+                    {currentDivision.name} Location
+                  </h4>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    {currentDivision.address}
+                  </p>
+                </div>
                 <div className="aspect-[21/9] w-full">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126254.89283762!2d78.01914!3d9.9252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c582b1189633%3A0xdc955b7264f63933!2sMadurai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1234567890"
+                    key={currentDivision.id}
+                    src={currentDivision.mapUrl}
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Location"
+                    title={`${currentDivision.name} Location`}
                   />
                 </div>
               </Card>

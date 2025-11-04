@@ -32,8 +32,8 @@ const divisions = [
     link: "/group/mathi-mobiles",
   },
   {
-    icon: Heart,
-    logoImage: null,
+    icon: null,
+    logoImage: "/images/himalaya_wellness/himalaya.avif",
     title: "Himalaya Wellness",
     description:
       "Health and wellness products for every family - from skincare to baby care and oral hygiene.",

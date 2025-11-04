@@ -145,58 +145,231 @@ export function Footer() {
 
       {/* Brand Header Section */}
       <div className="relative border-b border-primary-500/20">
-        <div className="max-w-7xl mx-auto px-4 py-16">
+        <div className="max-w-7xl mx-auto px-4 py-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col items-center justify-center gap-8"
+            className="flex flex-col md:flex-row items-center justify-between gap-8"
           >
-            {/* Logo */}
-            <div className="w-48 h-48 md:w-64 md:h-64 relative">
-              <Image
-                src="/Mariyappa Group-logo.png"
-                alt="Mariappa Nadar Group Logo"
-                fill
-                sizes="(max-width: 768px) 192px, 256px"
-                className="object-contain"
-              />
+            {/* Logo and Description */}
+            <div className="flex flex-col items-center md:items-start gap-4 flex-1">
+              <div className="w-40 h-40 md:w-48 md:h-48 relative">
+                <Image
+                  src="/Mariyappa Group-logo.png"
+                  alt="Mariappa Nadar Group Logo"
+                  fill
+                  sizes="(max-width: 768px) 128px, 160px"
+                  className="object-contain"
+                />
+              </div>
+              <p className="text-sm text-base-400 text-center md:text-left leading-relaxed max-w-md">
+                Building excellence across three trusted divisions. Serving with
+                quality, integrity, and innovation for nearly a century.
+              </p>
             </div>
 
-            {/* Description */}
-            <p className="text-base md:text-lg text-base-400 text-center leading-relaxed max-w-2xl">
-              Building excellence across three trusted divisions. Serving with
-              quality, integrity, and innovation for nearly a century.
-            </p>
-
             {/* Contact Info Cards */}
-            <div className="flex flex-col sm:flex-row gap-4 mt-4">
-              <motion.div
+            <div className="flex flex-col gap-3">
+              <motion.a
+                href="tel:8220333888"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
-                className="flex items-center gap-3 px-6 py-4 bg-gradient-to-br from-primary-500/10 to-transparent border border-primary-500/20 rounded-xl hover:border-primary-500/40 transition-all"
+                whileHover={{ scale: 1.02 }}
+                className="flex items-center gap-3 px-5 py-3 bg-gradient-to-br from-primary-500/10 to-transparent border border-primary-500/20 rounded-lg hover:border-primary-500/40 transition-all cursor-pointer"
               >
-                <Phone className="w-5 h-5 text-primary-400" />
+                <Phone className="w-4 h-4 text-primary-400" />
                 <div>
                   <p className="text-xs text-primary-300 font-medium">Phone</p>
-                  <p className="text-sm text-white">+91 XXX XXX XXXX</p>
+                  <p className="text-sm text-white font-semibold">8220333888</p>
                 </div>
-              </motion.div>
-              <motion.div
+              </motion.a>
+              <motion.a
+                href="mailto:info@mngroup.com"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className="flex items-center gap-3 px-6 py-4 bg-gradient-to-br from-primary-500/10 to-transparent border border-primary-500/20 rounded-xl hover:border-primary-500/40 transition-all"
+                whileHover={{ scale: 1.02 }}
+                className="flex items-center gap-3 px-5 py-3 bg-gradient-to-br from-primary-500/10 to-transparent border border-primary-500/20 rounded-lg hover:border-primary-500/40 transition-all cursor-pointer"
               >
-                <Mail className="w-5 h-5 text-primary-400" />
+                <Mail className="w-4 h-4 text-primary-400" />
                 <div>
                   <p className="text-xs text-primary-300 font-medium">Email</p>
-                  <p className="text-sm text-white">info@mngroup.com</p>
+                  <p className="text-sm text-white font-semibold">
+                    info@mngroup.com
+                  </p>
                 </div>
+              </motion.a>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Offices and Locations Section */}
+      <div className="relative border-b border-primary-500/20">
+        <div className="max-w-7xl mx-auto px-4 py-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
+            <h3 className="text-primary-300 text-center text-xs font-bold tracking-wider uppercase">
+              Our Locations
+            </h3>
+
+            {/* Grid of Offices */}
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+              {/* Corporate Office */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="p-4 bg-gradient-to-br from-primary-500/10 to-transparent border border-primary-500/20 rounded-lg hover:border-primary-500/40 transition-all"
+              >
+                <h4 className="text-primary-300 font-semibold mb-2 text-xs uppercase tracking-wide">
+                  Corporate Office
+                </h4>
+                <p className="text-[10px] text-primary-400 mb-2">
+                  Karuppayurani
+                </p>
+                <div className="space-y-1 text-xs text-base-300 mb-3">
+                  <p>456/1, Sivagangai Road</p>
+                  <p>Opp to Vikram Hospital</p>
+                  <p>Ring Road Junction</p>
+                  <p>Madurai 625020</p>
+                </div>
+                <motion.a
+                  href="tel:8220333888"
+                  whileHover={{ scale: 1.02 }}
+                  className="inline-flex items-center gap-1.5 text-xs text-primary-400 hover:text-primary-300 transition-colors"
+                >
+                  <Phone className="w-3 h-3" />
+                  <span className="font-semibold">8220333888</span>
+                </motion.a>
+              </motion.div>
+
+              {/* Branch Office 1 - Building Materials */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="p-4 bg-gradient-to-br from-primary-500/10 to-transparent border border-primary-500/20 rounded-lg hover:border-primary-500/40 transition-all"
+              >
+                <h4 className="text-primary-300 font-semibold mb-2 text-xs uppercase tracking-wide">
+                  Branch Office No. 1
+                </h4>
+                <p className="text-[10px] text-primary-400 mb-2">
+                  Building Materials
+                </p>
+                <div className="space-y-1 text-xs text-base-300 mb-3">
+                  <p>Nagamalai Pudukottai</p>
+                  <p>4/467, Madurai Theni Road</p>
+                  <p>Vadivel Nagar</p>
+                  <p>Nagamalai Puthukottai</p>
+                  <p>Madurai 625019</p>
+                </div>
+                <motion.a
+                  href="tel:8940233833"
+                  whileHover={{ scale: 1.02 }}
+                  className="inline-flex items-center gap-1.5 text-xs text-primary-400 hover:text-primary-300 transition-colors"
+                >
+                  <Phone className="w-3 h-3" />
+                  <span className="font-semibold">8940233833</span>
+                </motion.a>
+              </motion.div>
+
+              {/* Branch Office 2 - Mobiles */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="p-4 bg-gradient-to-br from-primary-500/10 to-transparent border border-primary-500/20 rounded-lg hover:border-primary-500/40 transition-all"
+              >
+                <h4 className="text-primary-300 font-semibold mb-2 text-xs uppercase tracking-wide">
+                  Branch Office No. 2
+                </h4>
+                <p className="text-[10px] text-primary-400 mb-2">Mobiles</p>
+                <div className="space-y-1 text-xs text-base-300 mb-3">
+                  <p>Kamarajar Salai</p>
+                  <p>Ground Floor, SMT Square</p>
+                  <p>Opp to Nirmala School</p>
+                  <p>137/1-4, Kamarajar Salai</p>
+                  <p>Madurai 625009</p>
+                </div>
+                <motion.a
+                  href="tel:8883233355"
+                  whileHover={{ scale: 1.02 }}
+                  className="inline-flex items-center gap-1.5 text-xs text-primary-400 hover:text-primary-300 transition-colors"
+                >
+                  <Phone className="w-3 h-3" />
+                  <span className="font-semibold">8883233355</span>
+                </motion.a>
+              </motion.div>
+
+              {/* Branch Office 3 - Health and Wellness */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="p-4 bg-gradient-to-br from-primary-500/10 to-transparent border border-primary-500/20 rounded-lg hover:border-primary-500/40 transition-all"
+              >
+                <h4 className="text-primary-300 font-semibold mb-2 text-xs uppercase tracking-wide">
+                  Branch Office No. 3
+                </h4>
+                <p className="text-[10px] text-primary-400 mb-2">
+                  Health & Wellness Products
+                </p>
+                <div className="space-y-1 text-xs text-base-300 mb-3">
+                  <p>Kamarajar Salai</p>
+                  <p>Ground Floor, SMT Square</p>
+                  <p>Opp to Nirmala School</p>
+                  <p>137/1-4, Kamarajar Salai</p>
+                  <p>Madurai 625009</p>
+                </div>
+                <motion.a
+                  href="tel:9087733355"
+                  whileHover={{ scale: 1.02 }}
+                  className="inline-flex items-center gap-1.5 text-xs text-primary-400 hover:text-primary-300 transition-colors"
+                >
+                  <Phone className="w-3 h-3" />
+                  <span className="font-semibold">9087733355</span>
+                </motion.a>
+              </motion.div>
+
+              {/* MaatRaM Trust */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="p-4 bg-gradient-to-br from-primary-500/10 to-transparent border border-primary-500/20 rounded-lg hover:border-primary-500/40 transition-all"
+              >
+                <h4 className="text-primary-300 font-semibold mb-2 text-xs uppercase tracking-wide">
+                  MaatRaM
+                </h4>
+                <p className="text-[10px] text-primary-400 mb-2">
+                  Educational & Medical Trust
+                </p>
+                <div className="space-y-1 text-xs text-base-300 mb-3">
+                  <p>456/1, Sivagangai Road</p>
+                  <p>Opp to Vikram Hospital</p>
+                  <p>Ring Road Junction</p>
+                  <p>Madurai 625020</p>
+                </div>
+                <motion.a
+                  href="tel:8300033833"
+                  whileHover={{ scale: 1.02 }}
+                  className="inline-flex items-center gap-1.5 text-xs text-primary-400 hover:text-primary-300 transition-colors"
+                >
+                  <Phone className="w-3 h-3" />
+                  <span className="font-semibold">8300033833</span>
+                </motion.a>
               </motion.div>
             </div>
           </motion.div>
