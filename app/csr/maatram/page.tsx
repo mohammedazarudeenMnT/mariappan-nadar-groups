@@ -1,9 +1,4 @@
 import type { Metadata } from "next";
-import { MaatramHeroSection } from "@/components/csr/maatram/hero-section";
-import { MaatramAboutSection } from "@/components/csr/maatram/about-section";
-import { InitiativesSection } from "@/components/csr/maatram/initiatives-section";
-import { ImpactSection } from "@/components/csr/maatram/impact-section";
-import { MaatramCTASection } from "@/components/csr/maatram/cta-section";
 
 export const metadata: Metadata = {
   title: "MaatRaM Trust | Educational & Medical Trust - Mariappa Nadar Group",
@@ -42,23 +37,29 @@ export const metadata: Metadata = {
   },
 };
 
+import { MaatramHeroSection } from "@/components/maatram/hero-section";
+import { MissionVisionSection } from "@/components/maatram/mission-vision-section";
+import { InitiativesSection } from "@/components/maatram/initiatives-section";
+import { TestimonialsSection } from "@/components/maatram/testimonials-section";
+import { CTASection } from "@/components/maatram/cta-section";
+
 export default function MaatramPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <MaatramHeroSection />
 
-      {/* About MaatRaM Trust */}
-      <MaatramAboutSection />
+      {/* Mission & Vision */}
+      <MissionVisionSection />
 
       {/* Our Initiatives */}
       <InitiativesSection />
 
-      {/* Impact & Statistics */}
-      <ImpactSection />
+      {/* Success Stories */}
+      <TestimonialsSection />
 
-      {/* CTA Section */}
-      <MaatramCTASection />
+      {/* Call to Action */}
+      <CTASection />
     </div>
   );
 }

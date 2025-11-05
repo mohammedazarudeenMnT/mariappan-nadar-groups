@@ -98,7 +98,7 @@ const divisions = [
   {
     id: "maatram",
     icon: IconHeartHandshake,
-    logo: "/images/Maatram/MAATRAM HORIZONTAL LOGO.jpg",
+    logo: "/images/Maatram/MAATRAM HORIZONTAL LOGO.png",
     name: "MaatRaM",
     tagline: "Educational & Medical Trust",
     description:
