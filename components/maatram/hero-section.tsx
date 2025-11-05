@@ -88,6 +88,7 @@ function StatCard({ icon, value, suffix = "", label }: StatCardProps) {
 
 export function MaatramHeroSection() {
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
+  const [isTransitioning, setIsTransitioning] = React.useState(false);
 
   const heroImages = [
     "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80",
@@ -97,8 +98,14 @@ export function MaatramHeroSection() {
 
   React.useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-    }, 3000);
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+      }, 400);
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 800);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);
@@ -151,21 +158,44 @@ export function MaatramHeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="inline-block bg-gradient-to-b from-white to-white/80 bg-clip-text text-4xl font-bold leading-[1.1] tracking-tight text-transparent drop-shadow-sm sm:text-5xl sm:leading-[1.1] md:text-6xl lg:text-7xl xl:text-8xl"
+            className="inline-block bg-gradient-to-b from-white to-white/80 bg-clip-text text-4xl font-bold leading-[1.3] tracking-tight text-transparent drop-shadow-sm sm:text-5xl sm:leading-[1.3] md:text-6xl lg:text-7xl xl:text-8xl"
           >
             Empowering Communities Through{" "}
-            <span className="inline-block h-16 w-32 align-middle overflow-hidden rounded-2xl bg-muted md:h-20 md:w-48">
+            <span className="inline-block h-20 w-40 align-middle overflow-hidden rounded-2xl bg-slate-950 md:h-28 md:w-64 relative">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={currentImageIndex}
                   src={heroImages[currentImageIndex]}
                   alt="Impact"
                   className="h-full w-full object-cover"
-                  initial={{ opacity: 0, scale: 0.95 }}
+                  initial={{ opacity: 0, scale: 1.05 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 1 }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
                 />
+              </AnimatePresence>
+
+              {/* Logo overlay during transition */}
+              <AnimatePresence>
+                {isTransitioning && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="absolute inset-0 z-10 flex items-center justify-center bg-white p-3"
+                  >
+                    <motion.img
+                      src="/images/Maatram/MAATRAM HORIZONTAL LOGO.png"
+                      alt="Maatram Logo"
+                      className="w-full h-full object-contain"
+                      initial={{ opacity: 0, scale: 0.85 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.85 }}
+                      transition={{ duration: 0.35, ease: "easeOut" }}
+                    />
+                  </motion.div>
+                )}
               </AnimatePresence>
             </span>{" "}
             Education & Healthcare
