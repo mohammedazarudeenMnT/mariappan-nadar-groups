@@ -3,6 +3,7 @@ import ImagesSliderDemo from "@/components/images-slider-demo";
 import { AboutGroupSection } from "@/components/about-group-section";
 import { LegacySection } from "@/components/legacy-section";
 import { BusinessDivisionsSection } from "@/components/business-divisions-section";
+import { MaatramHomeSection } from "@/components/maatram-home-section";
 import { MediaSection } from "@/components/media-section";
 import { CommunitySection } from "@/components/community-section";
 
@@ -58,6 +59,9 @@ export default function Home() {
 
       {/* Business Divisions Section */}
       <BusinessDivisionsSection />
+
+      {/* MaatRaM Trust Section */}
+      <MaatramHomeSection />
 
       {/* Media & News Section */}
       <MediaSection />
