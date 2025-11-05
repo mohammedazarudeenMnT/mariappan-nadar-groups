@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import Link from "next/link";
 import { IconSchool, IconStethoscope, IconArrowRight } from "@tabler/icons-react";
 import { BlurFade } from "@/components/ui/blur-fade";
+import Image from "next/image";
 
 const focusAreas = [
     {
@@ -43,7 +44,7 @@ export function MaatramHomeSection() {
                         className="w-full h-full bg-cover bg-center bg-fixed"
                         style={{
                             backgroundImage:
-                                "url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1920&h=1080&fit=crop')",
+                                "url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=1920&h=1080&fit=crop')",
                         }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-primary-900/80 to-slate-900/90" />
@@ -62,21 +63,25 @@ export function MaatramHomeSection() {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.8 }}
                             >
-                                {/* Quote Mark */}
+                                {/* MaatRaM Logo */}
                                 <motion.div
                                     initial={{ opacity: 0, y: -20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: 0.3 }}
-                                    className="mb-8"
+                                    className="mb-8 flex justify-center"
                                 >
-                                    <svg
-                                        className="w-16 h-16 mx-auto text-primary-400 opacity-50"
-                                        fill="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
-                                    </svg>
+                                    <div className="w-40 h-20 rounded-2xl bg-white flex items-center justify-center shadow-xl p-2">
+                                        <div className="relative w-full h-full">
+                                            <Image
+                                                src="/images/Maatram/MAATRAM HORIZONTAL LOGO.png"
+                                                alt="MaatRaM Trust Logo"
+                                                fill
+                                                sizes="160px"
+                                                className="object-contain"
+                                            />
+                                        </div>
+                                    </div>
                                 </motion.div>
 
                                 {/* Main Text */}
