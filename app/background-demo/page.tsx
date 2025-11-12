@@ -196,208 +196,188 @@ function ParticlesBackground() {
   );
 }
 
-// Background 6: Glowing Orbs
-function GlowingOrbsBackground() {
+// Background 6: Noise Texture
+function NoiseTextureBackground() {
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
 
   React.useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
 
-    let time = 0;
-    let animationFrameId: number;
+    let frame = 0;
+    let animationId = 0;
+    const canvasSize = 1024;
 
-    const setCanvasSize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+    const resize = () => {
+      canvas.width = canvasSize;
+      canvas.height = canvasSize;
+      canvas.style.width = "100vw";
+      canvas.style.height = "100vh";
     };
-    setCanvasSize();
-    window.addEventListener("resize", setCanvasSize);
 
-    const colors = [
-      { r: 45, g: 212, b: 191 },
-      { r: 168, g: 85, b: 247 },
-      { r: 59, g: 130, b: 246 },
-      { r: 236, g: 72, b: 153 },
-    ];
-
-    class Orb {
-      x: number;
-      y: number;
-      radius: number;
-      color: { r: number; g: number; b: number };
-      vx: number;
-      vy: number;
-
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.radius = Math.random() * 300 + 100;
-        this.color = colors[Math.floor(Math.random() * colors.length)];
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
+    const drawGrain = () => {
+      const imageData = ctx.createImageData(canvasSize, canvasSize);
+      const data = imageData.data;
+      for (let i = 0; i < data.length; i += 4) {
+        const value = Math.random() * 255;
+        data[i] = value;
+        data[i + 1] = value;
+        data[i + 2] = value;
+        data[i + 3] = 18;
       }
+      ctx.putImageData(imageData, 0, 0);
+    };
 
-      draw() {
-        const gradient = ctx!.createRadialGradient(
-          this.x,
-          this.y,
-          0,
-          this.x,
-          this.y,
-          this.radius
-        );
-        gradient.addColorStop(
-          0,
-          `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, 0.3)`
-        );
-        gradient.addColorStop(
-          1,
-          `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, 0)`
-        );
+    const loop = () => {
+      if (frame % 2 === 0) drawGrain();
+      frame++;
+      animationId = requestAnimationFrame(loop);
+    };
 
-        ctx!.fillStyle = gradient;
-        ctx!.beginPath();
-        ctx!.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx!.fill();
-      }
-
-      update() {
-        this.x += this.vx + Math.sin(time * 0.001) * 0.5;
-        this.y += this.vy + Math.cos(time * 0.001) * 0.5;
-
-        if (
-          this.x < -this.radius ||
-          this.x > canvas.width + this.radius ||
-          this.y < -this.radius ||
-          this.y > canvas.height + this.radius
-        ) {
-          this.x = Math.random() * canvas.width;
-          this.y = Math.random() * canvas.height;
-        }
-      }
-    }
-
-    const orbs = Array.from({ length: 8 }, () => new Orb());
-
-    function animate() {
-      ctx!.clearRect(0, 0, canvas.width, canvas.height);
-      time++;
-
-      orbs.forEach((orb) => {
-        orb.update();
-        orb.draw();
-      });
-
-      animationFrameId = requestAnimationFrame(animate);
-    }
-    animate();
+    window.addEventListener("resize", resize);
+    resize();
+    loop();
 
     return () => {
-      window.removeEventListener("resize", setCanvasSize);
-      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("resize", resize);
+      cancelAnimationFrame(animationId);
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 z-0" />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 z-0 pointer-events-none"
+      style={{ imageRendering: "pixelated" }}
+    />
+  );
 }
 
-// Background 7: Starfield
-function StarfieldBackground() {
-  const canvasRef = React.useRef<HTMLCanvasElement>(null);
+// Background 7: Geometric Shapes
+function GeometricShapesBackground() {
+  const shapes = [
+    {
+      width: 600,
+      height: 140,
+      rotate: 12,
+      gradient: "from-indigo-500/[0.15]",
+      className: "left-[-10%] top-[15%]",
+      delay: 0,
+    },
+    {
+      width: 500,
+      height: 120,
+      rotate: -15,
+      gradient: "from-rose-500/[0.15]",
+      className: "right-[-5%] top-[70%]",
+      delay: 2,
+    },
+    {
+      width: 300,
+      height: 80,
+      rotate: -8,
+      gradient: "from-violet-500/[0.15]",
+      className: "left-[5%] bottom-[5%]",
+      delay: 1,
+    },
+    {
+      width: 200,
+      height: 60,
+      rotate: 20,
+      gradient: "from-amber-500/[0.15]",
+      className: "right-[15%] top-[10%]",
+      delay: 3,
+    },
+    {
+      width: 150,
+      height: 40,
+      rotate: -25,
+      gradient: "from-cyan-500/[0.15]",
+      className: "left-[20%] top-[5%]",
+      delay: 4,
+    },
+  ];
 
-  React.useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let animationFrameId: number;
-    const stars: Array<{
-      x: number;
-      y: number;
-      z: number;
-      px: number;
-      py: number;
-    }> = [];
-    const speed = 2;
-    const quantity = 300;
-
-    const setCanvasSize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    setCanvasSize();
-    window.addEventListener("resize", setCanvasSize);
-
-    // Initialize stars
-    for (let i = 0; i < quantity; i++) {
-      stars.push({
-        x: Math.random() * canvas.width * 2 - canvas.width,
-        y: Math.random() * canvas.height * 2 - canvas.height,
-        z: Math.random() * canvas.width,
-        px: 0,
-        py: 0,
-      });
-    }
-
-    function animate() {
-      ctx!.fillStyle = "rgba(0, 0, 0, 0.1)";
-      ctx!.fillRect(0, 0, canvas.width, canvas.height);
-      ctx!.strokeStyle = "rgba(255, 255, 255, 0.8)";
-
-      const cx = canvas.width / 2;
-      const cy = canvas.height / 2;
-
-      stars.forEach((star) => {
-        star.z -= speed;
-        if (star.z <= 0) {
-          star.z = canvas.width;
-          star.x = Math.random() * canvas.width * 2 - canvas.width;
-          star.y = Math.random() * canvas.height * 2 - canvas.height;
+  return (
+    <>
+      {shapes.map((shape, i) => (
+        <div
+          key={i}
+          className={`absolute ${shape.className}`}
+          style={{
+            width: shape.width,
+            height: shape.height,
+            transform: `rotate(${shape.rotate}deg)`,
+            animation: `floatShape 12s ease-in-out infinite`,
+            animationDelay: `${shape.delay}s`,
+          }}
+        >
+          <div
+            className={`absolute inset-0 rounded-full bg-gradient-to-r to-transparent ${shape.gradient} backdrop-blur-[2px] border-2 border-white/[0.15] shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]`}
+          />
+        </div>
+      ))}
+      <style jsx>{`
+        @keyframes floatShape {
+          0%,
+          100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(15px);
+          }
         }
-
-        const k = 128 / star.z;
-        const px = star.x * k + cx;
-        const py = star.y * k + cy;
-
-        if (
-          star.px !== 0 &&
-          star.py !== 0 &&
-          px > 0 &&
-          px < canvas.width &&
-          py > 0 &&
-          py < canvas.height
-        ) {
-          ctx!.lineWidth = (1 - star.z / canvas.width) * 2;
-          ctx!.beginPath();
-          ctx!.moveTo(star.px, star.py);
-          ctx!.lineTo(px, py);
-          ctx!.stroke();
-        }
-
-        star.px = px;
-        star.py = py;
-      });
-
-      animationFrameId = requestAnimationFrame(animate);
-    }
-    animate();
-
-    return () => {
-      window.removeEventListener("resize", setCanvasSize);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
-
-  return <canvas ref={canvasRef} className="absolute inset-0 z-0" />;
+      `}</style>
+    </>
+  );
 }
 
-// Background 8: Hexagon Pattern
+// Background 8: Nested Squares
+function NestedSquaresBackground() {
+  const squares = Array.from({ length: 15 }, (_, i) => i);
+
+  return (
+    <>
+      <div className="absolute inset-0 flex items-center justify-center">
+        {squares.map((index) => {
+          const size = 50 + (index + 1) * 30;
+          const delay = index * 0.15;
+
+          return (
+            <div
+              key={index}
+              className="absolute border-2 rounded-lg"
+              style={{
+                width: `${size}px`,
+                height: `${size}px`,
+                borderImage: `linear-gradient(45deg, rgb(147, 51, 234), rgb(168, 85, 247), rgb(196, 181, 253)) 1`,
+                animation: `scaleRotate 3s ease-in-out ${delay}s infinite alternate`,
+                transformOrigin: "center center",
+              }}
+            />
+          );
+        })}
+      </div>
+      <style jsx>{`
+        @keyframes scaleRotate {
+          0% {
+            transform: scale(0.8) rotate(0deg);
+            opacity: 0.3;
+          }
+          100% {
+            transform: scale(1.2) rotate(180deg);
+            opacity: 0.8;
+          }
+        }
+      `}</style>
+    </>
+  );
+}
+
+// Background 9: Hexagon Pattern
 function HexagonBackground() {
   return (
     <div className="absolute inset-0 z-0 opacity-10">
@@ -425,21 +405,324 @@ function HexagonBackground() {
   );
 }
 
-// Background 9: Radial Circles
-function RadialCirclesBackground() {
+// Background 10: Neural Network Paths
+function NeuralNetworkBackground() {
+  const nodes = React.useMemo(
+    () =>
+      Array.from({ length: 40 }, (_, i) => ({
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        id: `node-${i}`,
+      })),
+    []
+  );
+
+  const connections = React.useMemo(() => {
+    const conns: Array<{
+      id: string;
+      x1: number;
+      y1: number;
+      x2: number;
+      y2: number;
+      delay: number;
+    }> = [];
+    nodes.forEach((node, i) => {
+      const nearbyNodes = nodes.filter((other, j) => {
+        if (i === j) return false;
+        const distance = Math.sqrt(
+          Math.pow(node.x - other.x, 2) + Math.pow(node.y - other.y, 2)
+        );
+        return distance < 20 && Math.random() > 0.7;
+      });
+
+      nearbyNodes.forEach((target) => {
+        conns.push({
+          id: `conn-${i}-${target.id}`,
+          x1: node.x,
+          y1: node.y,
+          x2: target.x,
+          y2: target.y,
+          delay: Math.random() * 5,
+        });
+      });
+    });
+    return conns;
+  }, [nodes]);
+
   return (
-    <div className="absolute inset-0 z-0 opacity-20">
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `
-            radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 50%),
-            radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 50%),
-            radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0%, transparent 50%)
-          `,
-        }}
-      />
-    </div>
+    <svg
+      className="absolute inset-0 w-full h-full opacity-20"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+    >
+      {connections.map((conn) => (
+        <line
+          key={conn.id}
+          x1={conn.x1}
+          y1={conn.y1}
+          x2={conn.x2}
+          y2={conn.y2}
+          stroke="currentColor"
+          strokeWidth="0.1"
+          className="text-white"
+          style={{
+            animation: `pulse 3s ease-in-out ${conn.delay}s infinite`,
+          }}
+        />
+      ))}
+      {nodes.map((node) => (
+        <circle
+          key={node.id}
+          cx={node.x}
+          cy={node.y}
+          r="0.3"
+          fill="currentColor"
+          className="text-white"
+          style={{
+            animation: "pulse 2s ease-in-out infinite",
+          }}
+        />
+      ))}
+      <style jsx>{`
+        @keyframes pulse {
+          0%,
+          100% {
+            opacity: 0.2;
+          }
+          50% {
+            opacity: 0.8;
+          }
+        }
+      `}</style>
+    </svg>
+  );
+}
+
+// Background 11: Flow Paths
+function FlowPathsBackground() {
+  const flowPaths = React.useMemo(
+    () =>
+      Array.from({ length: 8 }, (_, i) => {
+        const offset = i * 12;
+        return {
+          id: `flow-${i}`,
+          d: `M-10,${20 + offset} Q30,${20 + offset - 5} 60,${
+            20 + offset
+          } T110,${20 + offset}`,
+          strokeWidth: 0.3 + i * 0.1,
+          delay: i * 0.8,
+        };
+      }),
+    []
+  );
+
+  return (
+    <svg
+      className="absolute inset-0 w-full h-full opacity-25"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+    >
+      {flowPaths.map((path) => (
+        <path
+          key={path.id}
+          d={path.d}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={path.strokeWidth}
+          strokeLinecap="round"
+          className="text-white"
+          style={{
+            animation: `flowPath 8s ease-in-out ${path.delay}s infinite`,
+            strokeDasharray: "5 10",
+          }}
+        />
+      ))}
+      <style jsx>{`
+        @keyframes flowPath {
+          0% {
+            stroke-dashoffset: 0;
+            opacity: 0;
+          }
+          20% {
+            opacity: 0.6;
+          }
+          80% {
+            opacity: 0.6;
+          }
+          100% {
+            stroke-dashoffset: -15;
+            opacity: 0;
+          }
+        }
+      `}</style>
+    </svg>
+  );
+}
+
+// Background 12: Spiral Paths
+function SpiralPathsBackground() {
+  const spirals = React.useMemo(() => {
+    return Array.from({ length: 6 }, (_, i) => {
+      const centerX = 50 + ((i % 3) - 1) * 30;
+      const centerY = 50 + Math.floor(i / 3 - 0.5) * 30;
+      const radius = 10 + i * 2;
+      const turns = 2;
+
+      let path = `M${centerX + radius},${centerY}`;
+      for (let angle = 0; angle <= turns * 360; angle += 10) {
+        const radian = (angle * Math.PI) / 180;
+        const currentRadius = radius * (1 - angle / (turns * 360));
+        const x = centerX + currentRadius * Math.cos(radian);
+        const y = centerY + currentRadius * Math.sin(radian);
+        path += ` L${x},${y}`;
+      }
+
+      return {
+        id: `spiral-${i}`,
+        d: path,
+        delay: i * 1.2,
+      };
+    });
+  }, []);
+
+  return (
+    <svg
+      className="absolute inset-0 w-full h-full opacity-20"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="xMidYMid slice"
+    >
+      {spirals.map((spiral) => (
+        <path
+          key={spiral.id}
+          d={spiral.d}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.3"
+          strokeLinecap="round"
+          className="text-white"
+          style={{
+            animation: `drawSpiral 6s ease-in-out ${spiral.delay}s infinite`,
+          }}
+        />
+      ))}
+      <style jsx>{`
+        @keyframes drawSpiral {
+          0% {
+            stroke-dasharray: 0 100;
+            opacity: 0;
+          }
+          50% {
+            stroke-dasharray: 100 0;
+            opacity: 0.8;
+          }
+          100% {
+            stroke-dasharray: 0 100;
+            opacity: 0;
+          }
+        }
+      `}</style>
+    </svg>
+  );
+}
+
+// Background 16-21: BG Pattern Variants
+function BGPatternGrid() {
+  return (
+    <div
+      className="absolute inset-0 z-0"
+      style={{
+        backgroundImage: `linear-gradient(to right, #252525 1px, transparent 1px), linear-gradient(to bottom, #252525 1px, transparent 1px)`,
+        backgroundSize: "24px 24px",
+        maskImage: "radial-gradient(ellipse at center, white, transparent)",
+        WebkitMaskImage:
+          "radial-gradient(ellipse at center, white, transparent)",
+      }}
+    />
+  );
+}
+
+function BGPatternDots() {
+  return (
+    <div
+      className="absolute inset-0 z-0"
+      style={{
+        backgroundImage: `radial-gradient(#252525 1px, transparent 1px)`,
+        backgroundSize: "24px 24px",
+        maskImage: "radial-gradient(ellipse at center, transparent, white)",
+        WebkitMaskImage:
+          "radial-gradient(ellipse at center, transparent, white)",
+      }}
+    />
+  );
+}
+
+function BGPatternDiagonalStripes() {
+  return (
+    <div
+      className="absolute inset-0 z-0"
+      style={{
+        backgroundImage: `repeating-linear-gradient(45deg, #252525, #252525 1px, transparent 1px, transparent 24px)`,
+        maskImage:
+          "linear-gradient(to bottom, transparent, white, transparent)",
+        WebkitMaskImage:
+          "linear-gradient(to bottom, transparent, white, transparent)",
+      }}
+    />
+  );
+}
+
+function BGPatternHorizontalLines() {
+  return (
+    <div
+      className="absolute inset-0 z-0"
+      style={{
+        backgroundImage: `linear-gradient(to bottom, #252525 1px, transparent 1px)`,
+        backgroundSize: "24px 24px",
+        maskImage: "linear-gradient(to right, white, transparent)",
+        WebkitMaskImage: "linear-gradient(to right, white, transparent)",
+      }}
+    />
+  );
+}
+
+function BGPatternVerticalLines() {
+  return (
+    <div
+      className="absolute inset-0 z-0"
+      style={{
+        backgroundImage: `linear-gradient(to right, #252525 1px, transparent 1px)`,
+        backgroundSize: "24px 24px",
+        maskImage: "linear-gradient(to bottom, white, transparent)",
+        WebkitMaskImage: "linear-gradient(to bottom, white, transparent)",
+      }}
+    />
+  );
+}
+
+function BGPatternCheckerboard() {
+  return (
+    <div
+      className="absolute inset-0 z-0"
+      style={{
+        backgroundImage: `linear-gradient(45deg, #252525 25%, transparent 25%), linear-gradient(-45deg, #252525 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #252525 75%), linear-gradient(-45deg, transparent 75%, #252525 75%)`,
+        backgroundSize: "24px 24px",
+        backgroundPosition: "0 0, 0 12px, 12px -12px, -12px 0px",
+        maskImage: "linear-gradient(to top, transparent, white)",
+        WebkitMaskImage: "linear-gradient(to top, transparent, white)",
+      }}
+    />
+  );
+}
+
+// Background 22: Radial Gradient
+function RadialGradientBackground() {
+  return (
+    <div
+      className="absolute inset-0 z-0"
+      style={{
+        background: `radial-gradient(125% 125% at 50% 10%, rgba(255, 255, 255, 0.1) 40%, rgba(99, 102, 241, 0.3) 100%)`,
+      }}
+    />
   );
 }
 
@@ -460,6 +743,21 @@ const backgrounds = [
     description: "Northern lights effect",
   },
   {
+    name: "Neural Network",
+    component: NeuralNetworkBackground,
+    description: "Connected nodes network",
+  },
+  {
+    name: "Flow Paths",
+    component: FlowPathsBackground,
+    description: "Flowing animated paths",
+  },
+  {
+    name: "Spiral Paths",
+    component: SpiralPathsBackground,
+    description: "Animated spiral patterns",
+  },
+  {
     name: "Ripple Effect",
     component: RippleBackground,
     description: "Animated ripple waves",
@@ -470,14 +768,19 @@ const backgrounds = [
     description: "Gentle floating particles",
   },
   {
-    name: "Glowing Orbs",
-    component: GlowingOrbsBackground,
-    description: "Ambient glowing orbs",
+    name: "Noise Texture",
+    component: NoiseTextureBackground,
+    description: "Film grain effect overlay",
   },
   {
-    name: "Starfield",
-    component: StarfieldBackground,
-    description: "Space warp speed stars",
+    name: "Geometric Shapes",
+    component: GeometricShapesBackground,
+    description: "Floating elegant shapes",
+  },
+  {
+    name: "Nested Squares",
+    component: NestedSquaresBackground,
+    description: "Animated concentric squares",
   },
   {
     name: "Hexagon Pattern",
@@ -485,9 +788,54 @@ const backgrounds = [
     description: "Geometric hexagon grid",
   },
   {
-    name: "Radial Circles",
-    component: RadialCirclesBackground,
-    description: "Soft radial light spots",
+    name: "Dynamic Waves",
+    component: DynamicWaveBackground,
+    description: "Animated liquid wave patterns",
+  },
+  {
+    name: "Neon Grid",
+    component: NeonGridBackground,
+    description: "Cyberpunk neon grid effect",
+  },
+  {
+    name: "Cyber Diagonal",
+    component: CyberDiagonalBackground,
+    description: "Diagonal cyber grid pattern",
+  },
+  {
+    name: "BG Grid (Fade Edges)",
+    component: BGPatternGrid,
+    description: "Grid pattern with edge fade",
+  },
+  {
+    name: "BG Dots (Fade Center)",
+    component: BGPatternDots,
+    description: "Dots with center fade",
+  },
+  {
+    name: "BG Diagonal Stripes",
+    component: BGPatternDiagonalStripes,
+    description: "Diagonal stripes with Y fade",
+  },
+  {
+    name: "BG Horizontal Lines",
+    component: BGPatternHorizontalLines,
+    description: "Horizontal lines with right fade",
+  },
+  {
+    name: "BG Vertical Lines",
+    component: BGPatternVerticalLines,
+    description: "Vertical lines with bottom fade",
+  },
+  {
+    name: "BG Checkerboard",
+    component: BGPatternCheckerboard,
+    description: "Checkerboard with top fade",
+  },
+  {
+    name: "Radial Gradient",
+    component: RadialGradientBackground,
+    description: "Smooth radial gradient effect",
   },
 ];
 
@@ -576,16 +924,144 @@ export default function BackgroundDemo() {
             </h3>
             <ol className="space-y-2 text-white/70">
               <li>
-                1. Browse through all 9 background options using the navigation
-                buttons
+                1. Browse through all {backgrounds.length} background options
+                using the navigation buttons
               </li>
               <li>2. Click on the dots to jump to a specific background</li>
               <li>3. Once you find one you like, let me know the name</li>
-              <li>4. I'll implement it in your Maatram hero section</li>
+              <li>4. I&apos;ll implement it in your Maatram hero section</li>
             </ol>
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+// Background 13: Dynamic Wave Canvas
+function DynamicWaveBackground() {
+  const canvasRef = React.useRef<HTMLCanvasElement>(null);
+
+  React.useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let width: number,
+      height: number,
+      imageData: ImageData,
+      data: Uint8ClampedArray;
+    const SCALE = 3;
+
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      width = Math.floor(canvas.width / SCALE);
+      height = Math.floor(canvas.height / SCALE);
+      imageData = ctx.createImageData(width, height);
+      data = imageData.data;
+    };
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    const startTime = Date.now();
+
+    const render = () => {
+      const time = (Date.now() - startTime) * 0.001;
+
+      for (let y = 0; y < height; y++) {
+        for (let x = 0; x < width; x++) {
+          const u_x = (2 * x - width) / height;
+          const u_y = (2 * y - height) / height;
+
+          let a = 0;
+          let d = 0;
+
+          for (let i = 0; i < 4; i++) {
+            a += Math.cos(i - d + time * 0.5 - a * u_x);
+            d += Math.sin(i * u_y + a);
+          }
+
+          const wave = (Math.sin(a) + Math.cos(d)) * 0.5;
+          const intensity = 0.3 + 0.4 * wave;
+          const baseVal = 0.1 + 0.15 * Math.cos(u_x + u_y + time * 0.3);
+
+          const r = Math.max(0, Math.min(1, baseVal * 0.8)) * intensity;
+          const g = Math.max(0, Math.min(1, baseVal * 0.6)) * intensity;
+          const b = Math.max(0, Math.min(1, baseVal * 1.2)) * intensity;
+
+          const index = (y * width + x) * 4;
+          data[index] = r * 255;
+          data[index + 1] = g * 255;
+          data[index + 2] = b * 255;
+          data[index + 3] = 255;
+        }
+      }
+
+      ctx.putImageData(imageData, 0, 0);
+      if (SCALE > 1) {
+        ctx.imageSmoothingEnabled = false;
+        ctx.drawImage(
+          canvas,
+          0,
+          0,
+          width,
+          height,
+          0,
+          0,
+          canvas.width,
+          canvas.height
+        );
+      }
+
+      requestAnimationFrame(render);
+    };
+
+    render();
+
+    return () => window.removeEventListener("resize", resizeCanvas);
+  }, []);
+
+  return <canvas ref={canvasRef} className="absolute inset-0 z-0" />;
+}
+
+// Background 14: Neon Grid
+function NeonGridBackground() {
+  return (
+    <div className="absolute inset-0 z-0">
+      <div
+        className="absolute inset-0"
+        style={{
+          background: `
+            linear-gradient(90deg, transparent 0%, transparent 30%, rgba(138, 43, 226, 0.4) 50%, transparent 70%, transparent 100%),
+            linear-gradient(to bottom, #1a1a2e 0%, #2d1b69 50%, #0f0f23 100%)
+          `,
+          backgroundImage: `
+            repeating-linear-gradient(90deg, transparent 0px, transparent 79px, rgba(255, 255, 255, 0.05) 80px, rgba(255, 255, 255, 0.05) 81px)
+          `,
+        }}
+      />
+    </div>
+  );
+}
+
+// Background 15: Cyber Diagonal Grid
+function CyberDiagonalBackground() {
+  return (
+    <div className="absolute inset-0 z-0">
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `
+            repeating-linear-gradient(45deg, rgba(255, 20, 147, 0.15) 0, rgba(255, 20, 147, 0.15) 2px, transparent 2px, transparent 30px),
+            repeating-linear-gradient(-45deg, rgba(0, 255, 255, 0.1) 0, rgba(0, 255, 255, 0.1) 1px, transparent 1px, transparent 25px)
+          `,
+          backgroundSize: "40px 40px",
+        }}
+      />
     </div>
   );
 }
