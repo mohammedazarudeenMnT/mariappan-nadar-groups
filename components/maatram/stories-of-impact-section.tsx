@@ -127,7 +127,7 @@ export function StoriesOfImpactSection() {
             Stories of Impact
           </h2>
           <p className="relative mx-auto max-w-2xl text-balance text-base text-muted-foreground/80 md:text-lg">
-            Explore the lives we've touched and the communities we've
+            Explore the lives we&apos;ve touched and the communities we&apos;ve
             transformed through our programs.
           </p>
         </motion.div>
@@ -253,7 +253,7 @@ export function StoriesOfImpactSection() {
             </h3>
             <p className="mx-auto max-w-xl text-balance text-sm text-muted-foreground/80 md:text-base">
               These are the faces of change, the voices of progress, and the
-              hearts we've touched through our commitment to making a
+              hearts we&apos;ve touched through our commitment to making a
               difference.
             </p>
           </div>

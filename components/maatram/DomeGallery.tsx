@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useMemo, useRef, useCallback } from "react";
 import { useGesture } from "@use-gesture/react";
 
@@ -429,6 +430,7 @@ export default function DomeGallery({
             }
           }
 
+          // eslint-disable-next-line prefer-const
           let [vMagX, vMagY] = velArr;
           const [dirX, dirY] = dirArr;
           let vx = vMagX * dirX;
@@ -919,6 +921,7 @@ export default function DomeGallery({
                       backfaceVisibility: "hidden",
                     }}
                   >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={it.src}
                       draggable={false}

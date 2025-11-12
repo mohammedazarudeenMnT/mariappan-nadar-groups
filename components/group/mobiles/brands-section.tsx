@@ -3,15 +3,11 @@ import {
   motion,
   useMotionValue,
   useTransform,
+  MotionValue,
   useAnimationFrame,
 } from "motion/react";
 import { BlurFade } from "@/components/ui/blur-fade";
-import {
-  IconDeviceMobile,
-  IconShield,
-  IconClock,
-  IconCheck,
-} from "@tabler/icons-react";
+import { IconDeviceMobile, IconShield, IconClock } from "@tabler/icons-react";
 import { Marquee } from "@/components/ui/marquee";
 import { useState, useEffect, useRef } from "react";
 
@@ -146,7 +142,7 @@ function AnimatedBrandCard({
   brand: (typeof brands)[0];
   index: number;
   totalCards: number;
-  rotation: any;
+  rotation: MotionValue<number>;
   radius: number;
   centerX: number;
   centerY: number;

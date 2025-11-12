@@ -204,8 +204,8 @@ export function ImpactStatsSection() {
             </span>
           </h2>
           <p className="text-lg text-muted-foreground md:text-xl">
-            Real change, measurable results. See how we're making a difference
-            in our community through dedicated action and commitment.
+            Real change, measurable results. See how we&apos;re making a
+            difference in our community through dedicated action and commitment.
           </p>
         </motion.div>
 
