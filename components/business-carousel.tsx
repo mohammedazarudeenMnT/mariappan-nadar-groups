@@ -8,6 +8,7 @@ import {
   SliderBtn,
 } from "@/components/ui/progress-slider";
 import Link from "next/link";
+import Image from "next/image";
 
 const businesses = [
   {
@@ -23,6 +24,7 @@ const businesses = [
     ],
     image:
       "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=800&fit=crop",
+    logoImage: "/images/construction/MNBS Logo background erased.png",
     link: "/group/construction-materials",
   },
   {
@@ -38,6 +40,7 @@ const businesses = [
     ],
     image:
       "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1200&h=800&fit=crop",
+    logoImage: "/images/mathi-mobiles.png",
     link: "/group/mathi-mobiles",
   },
   {
@@ -53,6 +56,7 @@ const businesses = [
     ],
     image:
       "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=1200&h=800&fit=crop",
+    logoImage: "/images/himalaya_wellness/himalaya.avif",
     link: "/group/himalaya-wellness",
   },
 ];
@@ -104,9 +108,20 @@ export default function BusinessCarousel() {
                   {/* Content */}
                   <div className="space-y-6">
                     <div>
-                      <span className="inline-block px-4 py-1.5 bg-primary-500/10 text-primary-600 text-sm font-semibold rounded-full mb-4">
-                        {business.category}
-                      </span>
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center shadow-md p-2">
+                          <Image
+                            src={business.logoImage}
+                            alt={`${business.title} logo`}
+                            width={56}
+                            height={56}
+                            className="object-contain"
+                          />
+                        </div>
+                        <span className="inline-block px-4 py-1.5 bg-primary-500/10 text-primary-600 text-sm font-semibold rounded-full">
+                          {business.category}
+                        </span>
+                      </div>
                       <h3 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
                         {business.title}
                       </h3>

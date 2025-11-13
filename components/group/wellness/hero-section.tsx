@@ -102,7 +102,7 @@ function GlassmorphicCards() {
 
 export function WellnessHeroSection() {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-900 via-primary-900 to-slate-900">
+    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-900 via-primary-900 to-slate-900 pt-32 sm:pt-24 md:pt-16 lg:pt-0 mt-12 sm:mt-8 md:mt-0">
       {/* Glassmorphic Cards Background */}
       <GlassmorphicCards />
 

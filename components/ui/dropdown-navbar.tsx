@@ -97,7 +97,7 @@ export const DropdownNavbar = ({ className }: DropdownNavbarProps) => {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
           ? "bg-white/95 backdrop-blur-md shadow-sm dark:bg-base-950/95"
-          : "bg-transparent",
+          : "bg-white/95 backdrop-blur-md shadow-sm dark:bg-base-950/95 md:bg-transparent",
         className
       )}
     >
@@ -105,7 +105,7 @@ export const DropdownNavbar = ({ className }: DropdownNavbarProps) => {
         <div
           className={cn(
             "flex items-center justify-between transition-all duration-300",
-            isScrolled ? "h-22" : "h-48"
+            "h-22"
           )}
         >
           {/* Logo */}
@@ -116,15 +116,25 @@ export const DropdownNavbar = ({ className }: DropdownNavbarProps) => {
             >
               <div className="h-54 w-54 sm:h-62 sm:w-62 relative transition-all duration-300">
                 <Image
-                  src={
-                    isScrolled
-                      ? "/Mariyappa Group-logo-blk.png"
-                      : "/Mariyappa Group-logo.png"
-                  }
+                  src="/Mariyappa Group-logo.png"
                   alt="Mariappa Nadar Group Logo"
                   fill
                   sizes="(max-width: 640px) 256px, 288px"
-                  className="object-contain transition-opacity duration-300"
+                  className={cn(
+                    "object-contain transition-opacity duration-300 ",
+                    isScrolled ? "opacity-0" : "opacity-100"
+                  )}
+                  priority
+                />
+                <Image
+                  src="/Mariyappa Group-logo-blk.png"
+                  alt="Mariappa Nadar Group Logo"
+                  fill
+                  sizes="(max-width: 640px) 256px, 288px"
+                  className={cn(
+                    "object-contain transition-opacity duration-300",
+                    isScrolled ? "opacity-100" : "opacity-0"
+                  )}
                   priority
                 />
               </div>
@@ -267,9 +277,7 @@ export const DropdownNavbar = ({ className }: DropdownNavbarProps) => {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={cn(
                 "inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition-colors cursor-pointer",
-                isScrolled
-                  ? "text-base-700 hover:text-base-900 dark:text-base-300 dark:hover:text-white"
-                  : "text-white hover:text-primary-200 drop-shadow-md"
+                "text-base-700 hover:text-base-900 dark:text-base-300 dark:hover:text-white"
               )}
             >
               <svg

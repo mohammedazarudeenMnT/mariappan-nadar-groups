@@ -87,7 +87,7 @@ export function MobilesHeroGeometric() {
   };
 
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary-1000 via-primary-950 to-primary-900">
+    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary-1000 via-primary-950 to-primary-900 pt-32 sm:pt-24 md:pt-16 lg:pt-0 mt-12 sm:mt-8 md:mt-0">
       <div className="absolute inset-0 bg-gradient-to-br from-primary-500/[0.08] via-transparent to-primary-400/[0.08] blur-3xl" />
 
       <div className="absolute inset-0 overflow-hidden">
