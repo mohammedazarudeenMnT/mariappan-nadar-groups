@@ -63,47 +63,30 @@ export function LegacySection() {
         </div>
       </div>
 
-      {/* Enhanced animated background blobs with better colors */}
+      {/* Simplified animated background blobs */}
       <motion.div
-        className="absolute top-20 left-0 sm:left-10 w-[250px] sm:w-[400px] md:w-[500px] h-[250px] sm:h-[400px] md:h-[500px] bg-gradient-to-br from-blue-200/30 via-indigo-200/20 to-purple-200/10 rounded-full blur-3xl"
+        className="absolute top-20 left-0 sm:left-10 w-[250px] sm:w-[400px] md:w-[500px] h-[250px] sm:h-[400px] md:h-[500px] bg-gradient-to-br from-blue-200/20 via-indigo-200/15 to-purple-200/10 rounded-full blur-3xl"
         animate={{
-          scale: [1, 1.15, 1],
-          opacity: [0.4, 0.6, 0.4],
-          x: [0, 40, 0],
-          y: [0, 25, 0],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        style={{ willChange: "opacity" }}
+      />
+      <motion.div
+        className="absolute bottom-20 right-0 sm:right-10 w-[300px] sm:w-[500px] md:w-[600px] h-[300px] sm:h-[500px] md:h-[600px] bg-gradient-to-tl from-cyan-200/20 via-blue-200/15 to-indigo-200/10 rounded-full blur-3xl"
+        animate={{
+          opacity: [0.5, 0.3, 0.5],
         }}
         transition={{
           duration: 10,
           repeat: Infinity,
           ease: "easeInOut",
         }}
-      />
-      <motion.div
-        className="absolute bottom-20 right-0 sm:right-10 w-[300px] sm:w-[500px] md:w-[600px] h-[300px] sm:h-[500px] md:h-[600px] bg-gradient-to-tl from-cyan-200/30 via-blue-200/20 to-indigo-200/10 rounded-full blur-3xl"
-        animate={{
-          scale: [1.15, 1, 1.15],
-          opacity: [0.6, 0.4, 0.6],
-          x: [0, -40, 0],
-          y: [0, -25, 0],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-      <motion.div
-        className="absolute top-1/3 right-1/4 w-[200px] sm:w-[300px] md:w-[400px] h-[200px] sm:h-[300px] md:h-[400px] bg-gradient-to-br from-violet-200/20 via-purple-200/15 to-pink-200/10 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.25, 1],
-          opacity: [0.3, 0.5, 0.3],
-          rotate: [0, 180, 360],
-        }}
-        transition={{
-          duration: 18,
-          repeat: Infinity,
-          ease: "linear",
-        }}
+        style={{ willChange: "opacity" }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
@@ -128,17 +111,21 @@ export function LegacySection() {
             </div>
           </div>
 
-          <BlurFade delay={0.1}>
+          <BlurFade delay={0.05}>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-base-900 mb-4 sm:mb-6 relative">
-              <AnimatedText text="Legacy &" delay={0.2} />{" "}
-              <GradientText text="Leadership" delay={0.6} />
+              <AnimatedText text="Legacy &" delay={0.1} />{" "}
+              <GradientText text="Leadership" delay={0.3} />
             </h2>
           </BlurFade>
-          <BlurFade delay={0.4}>
+          <BlurFade delay={0.2}>
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
+              transition={{
+                delay: 0.4,
+                duration: 0.4,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
               className="text-base sm:text-lg md:text-xl text-primary-600 font-semibold relative"
             >
               Our force of success
@@ -147,86 +134,72 @@ export function LegacySection() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-          <BlurFade delay={0.3}>
+          <BlurFade delay={0.2}>
             <motion.div
-              whileHover={{ scale: 1.02, y: -5 }}
+              whileHover={{ y: -4 }}
               className="relative h-64 sm:h-80 md:h-96 rounded-lg overflow-hidden group cursor-pointer shadow-xl"
+              transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
             >
               <motion.img
                 src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop"
                 alt="Establishing a foundation of success"
                 className="w-full h-full object-cover"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
               <motion.div
                 className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8"
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 15, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
+                transition={{
+                  delay: 0.3,
+                  duration: 0.4,
+                  ease: [0.25, 0.1, 0.25, 1],
+                }}
               >
-                <motion.h3
-                  className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1 sm:mb-2"
-                  initial={{ x: -20, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.6 }}
-                >
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1 sm:mb-2">
                   Establishing a foundation of success
-                </motion.h3>
-                <motion.p
-                  className="text-primary-300 font-semibold text-sm sm:text-base md:text-lg"
-                  initial={{ x: -20, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.7 }}
-                >
+                </h3>
+                <p className="text-primary-300 font-semibold text-sm sm:text-base md:text-lg">
                   Since 1925
-                </motion.p>
+                </p>
               </motion.div>
             </motion.div>
           </BlurFade>
 
-          <BlurFade delay={0.4}>
+          <BlurFade delay={0.3}>
             <motion.div
-              whileHover={{ scale: 1.02, y: -5 }}
+              whileHover={{ y: -4 }}
               className="relative h-64 sm:h-80 md:h-96 rounded-lg overflow-hidden group cursor-pointer shadow-xl"
+              transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
             >
               <motion.img
                 src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=800&h=600&fit=crop"
                 alt="Leadership Vision"
                 className="w-full h-full object-cover"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.6 }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
               <motion.div
                 className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8"
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 15, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.6 }}
+                transition={{
+                  delay: 0.4,
+                  duration: 0.4,
+                  ease: [0.25, 0.1, 0.25, 1],
+                }}
               >
-                <motion.h3
-                  className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1 sm:mb-2"
-                  initial={{ x: -20, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.7 }}
-                >
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1 sm:mb-2">
                   Visionary Leadership
-                </motion.h3>
-                <motion.p
-                  className="text-primary-300 font-semibold text-sm sm:text-base"
-                  initial={{ x: -20, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.8 }}
-                >
+                </h3>
+                <p className="text-primary-300 font-semibold text-sm sm:text-base">
                   Guided by values, driven by excellence
-                </motion.p>
+                </p>
               </motion.div>
             </motion.div>
           </BlurFade>

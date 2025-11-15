@@ -73,10 +73,14 @@ const Card: React.FC<CardProps> = ({
         {/* Text Content - Left Side */}
         <div className="w-full md:w-[45%] flex flex-col justify-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{
+              delay: 0.1,
+              duration: 0.3,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
             className="mb-3 sm:mb-4"
           >
             <span
@@ -86,30 +90,42 @@ const Card: React.FC<CardProps> = ({
             </span>
           </motion.div>
           <motion.h3
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
+            transition={{
+              delay: 0.2,
+              duration: 0.3,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
             className="text-xl sm:text-2xl md:text-3xl font-bold text-base-900 mb-3 sm:mb-4 leading-tight"
           >
             {title}
           </motion.h3>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
+            transition={{
+              delay: 0.3,
+              duration: 0.3,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
             className="text-sm sm:text-sm md:text-base text-base-600 leading-relaxed"
           >
             {description}
           </motion.p>
           <Link href="/about" className="cursor-pointer">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -15 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-              className="mt-4 sm:mt-6 flex items-center gap-2 text-primary-600 text-sm sm:text-base font-semibold hover:gap-3 transition-all"
+              transition={{
+                delay: 0.4,
+                duration: 0.3,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
+              className="mt-4 sm:mt-6 flex items-center gap-2 text-primary-600 text-sm sm:text-base font-semibold hover:gap-3 transition-all duration-200"
             >
               <span>Learn More</span>
               <svg
@@ -165,13 +181,13 @@ export function AboutGroupSection() {
       {/* Header Section */}
       <div className="relative z-10 pb-16 sm:pb-14 md:pb-16 lg:pb-14 xl:pb-18 2xl:pb-20">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 text-center">
-          <BlurFade delay={0.1}>
+          <BlurFade delay={0.05}>
             <motion.h2
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-base-900 mb-3 sm:mb-4 leading-tight"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
             >
               About the{" "}
               <span className="bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent">
@@ -179,13 +195,17 @@ export function AboutGroupSection() {
               </span>
             </motion.h2>
           </BlurFade>
-          <BlurFade delay={0.2}>
+          <BlurFade delay={0.15}>
             <motion.p
               className="text-sm sm:text-base md:text-lg text-base-600 max-w-2xl mx-auto leading-relaxed px-2"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.6 }}
+              transition={{
+                delay: 0.2,
+                duration: 0.4,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
             >
               A century-long journey of{" "}
               <span className="text-primary-600 font-semibold">trust</span>,{" "}

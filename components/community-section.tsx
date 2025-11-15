@@ -34,91 +34,97 @@ export function CommunitySection() {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMSI+PHBhdGggZD0iTTM2IDE2YzAtMi4yMSAxLjc5LTQgNC00czQgMS43OSA0IDQtMS43OSA0LTQgNC00LTEuNzktNC00em0wIDI0YzAtMi4yMSAxLjc5LTQgNC00czQgMS43OSA0IDQtMS43OSA0LTQgNC00LTEuNzktNC00ek0xMiAxNmMwLTIuMjEgMS43OS00IDQtNHM0IDEuNzkgNCA0LTEuNzkgNC00IDQtNC0xLjc5LTQtNHptMCAyNGMwLTIuMjEgMS43OS00IDQtNHM0IDEuNzkgNCA0LTEuNzkgNC00IDQtNC0xLjc5LTQtNHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-20" />
       </div>
 
-      {/* Animated light beams */}
+      {/* Simplified light beams */}
       <motion.div
-        className="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-white/20 via-white/5 to-transparent"
+        className="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-white/15 via-white/5 to-transparent"
         animate={{
-          opacity: [0.2, 0.5, 0.2],
-          scaleY: [1, 1.2, 1],
+          opacity: [0.2, 0.4, 0.2],
         }}
         transition={{
           duration: 4,
           repeat: Infinity,
           ease: "easeInOut",
         }}
+        style={{ willChange: "opacity" }}
       />
       <motion.div
-        className="absolute top-0 right-1/3 w-1 h-full bg-gradient-to-b from-white/20 via-white/5 to-transparent"
+        className="absolute top-0 right-1/3 w-1 h-full bg-gradient-to-b from-white/15 via-white/5 to-transparent"
         animate={{
-          opacity: [0.5, 0.2, 0.5],
-          scaleY: [1.2, 1, 1.2],
+          opacity: [0.4, 0.2, 0.4],
         }}
         transition={{
           duration: 5,
           repeat: Infinity,
           ease: "easeInOut",
         }}
+        style={{ willChange: "opacity" }}
       />
 
-      {/* Floating orbs */}
+      {/* Simplified floating orbs */}
       <motion.div
         className="absolute top-1/4 right-20 w-40 h-40 bg-white/10 rounded-full blur-2xl"
         animate={{
-          y: [0, -30, 0],
-          x: [0, 20, 0],
-          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        style={{ willChange: "opacity" }}
+      />
+      <motion.div
+        className="absolute bottom-1/4 left-20 w-32 h-32 bg-white/10 rounded-full blur-2xl"
+        animate={{
+          opacity: [0.5, 0.3, 0.5],
         }}
         transition={{
           duration: 8,
           repeat: Infinity,
           ease: "easeInOut",
         }}
-      />
-      <motion.div
-        className="absolute bottom-1/4 left-20 w-32 h-32 bg-white/10 rounded-full blur-2xl"
-        animate={{
-          y: [0, 30, 0],
-          x: [0, -20, 0],
-          scale: [1.2, 1, 1.2],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+        style={{ willChange: "opacity" }}
       />
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <BlurFade delay={0.1}>
+          <BlurFade delay={0.05}>
             <motion.h2
               className="text-5xl md:text-6xl font-bold text-white mb-6"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
             >
               Community
             </motion.h2>
           </BlurFade>
-          <BlurFade delay={0.2}>
+          <BlurFade delay={0.15}>
             <motion.p
               className="text-2xl text-primary-100 font-semibold mb-4"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
+              transition={{
+                delay: 0.2,
+                duration: 0.4,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
             >
-              <FadeInText text="Our purpose in action" delay={0.4} />
+              <FadeInText text="Our purpose in action" delay={0.25} />
             </motion.p>
           </BlurFade>
-          <BlurFade delay={0.3}>
+          <BlurFade delay={0.25}>
             <motion.p
               className="text-lg text-primary-50 max-w-3xl mx-auto"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.6, duration: 0.8 }}
+              transition={{
+                delay: 0.3,
+                duration: 0.4,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
             >
               At Mariappa Nadar Group, we believe that success goes beyond
               business. It encompasses our shared responsibility to enable a
@@ -131,7 +137,7 @@ export function CommunitySection() {
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
-              <BlurFade key={stat.label} delay={0.3 + index * 0.1}>
+              <BlurFade key={stat.label} delay={0.15 + index * 0.05}>
                 <CardSpotlight
                   spotlightColor="rgba(255, 255, 255, 0.15)"
                   className="h-full"
@@ -140,48 +146,32 @@ export function CommunitySection() {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.8 + index * 0.2 }}
-                    whileHover={{ scale: 1.05, y: -8 }}
-                    className="relative bg-white/10 backdrop-blur-md rounded-2xl p-8 text-center border border-white/30 shadow-xl hover:shadow-2xl transition-all overflow-hidden group h-full"
+                    transition={{
+                      delay: 0.2 + index * 0.1,
+                      duration: 0.4,
+                      ease: [0.25, 0.1, 0.25, 1],
+                    }}
+                    whileHover={{ y: -6 }}
+                    className="relative bg-white/10 backdrop-blur-md rounded-2xl p-8 text-center border border-white/30 shadow-xl hover:shadow-2xl transition-all duration-200 overflow-hidden group h-full"
                   >
                     {/* Animated background gradient on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
 
-                    <motion.div
-                      className="flex justify-center mb-4 relative z-10"
-                      initial={{ scale: 0, rotate: -180 }}
-                      whileInView={{ scale: 1, rotate: 0 }}
-                      viewport={{ once: true }}
-                      transition={{
-                        delay: 0.9 + index * 0.2,
-                        type: "spring",
-                        stiffness: 200,
-                      }}
-                    >
-                      <motion.div
-                        className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center ring-2 ring-white/30 group-hover:ring-white/50 transition-all"
-                        whileHover={{ rotate: 360 }}
-                        transition={{ duration: 0.6 }}
-                      >
+                    <div className="flex justify-center mb-4 relative z-10">
+                      <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center ring-2 ring-white/30 group-hover:ring-white/50 transition-all duration-200">
                         <Icon className="w-8 h-8 text-white" />
-                      </motion.div>
-                    </motion.div>
+                      </div>
+                    </div>
                     <h3 className="text-5xl font-bold text-white mb-2 relative z-10">
                       <AnimatedCounter
                         to={stat.number}
                         suffix={stat.suffix}
-                        duration={2.5}
+                        duration={2}
                       />
                     </h3>
-                    <motion.p
-                      className="text-primary-100 text-lg font-medium relative z-10"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 1.2 + index * 0.2 }}
-                    >
+                    <p className="text-primary-100 text-lg font-medium relative z-10">
                       {stat.label}
-                    </motion.p>
+                    </p>
 
                     {/* Decorative corner accent */}
                     <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-white/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -192,46 +182,41 @@ export function CommunitySection() {
           })}
         </div>
 
-        <BlurFade delay={0.6}>
+        <BlurFade delay={0.4}>
           <motion.div
             className="bg-white/10 backdrop-blur-sm rounded-2xl p-12 border border-white/20"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 1.5, duration: 0.6 }}
+            transition={{
+              delay: 0.5,
+              duration: 0.4,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
           >
             <div className="text-center">
-              <motion.h3
-                className="text-3xl font-bold text-white mb-4"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 1.7 }}
-              >
-                <FadeInText text="Engage. Uplift. Empower." delay={1.8} />
-              </motion.h3>
-              <motion.p
-                className="text-xl text-primary-100 mb-8"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 2.0 }}
-              >
+              <h3 className="text-3xl font-bold text-white mb-4">
+                <FadeInText text="Engage. Uplift. Empower." delay={0.6} />
+              </h3>
+              <p className="text-xl text-primary-100 mb-8">
                 Building stronger communities through responsible business
                 practices
-              </motion.p>
+              </p>
               <Link href="/highlights" className="cursor-pointer">
                 <motion.button
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 2.2 }}
+                  transition={{
+                    delay: 0.7,
+                    duration: 0.4,
+                    ease: [0.25, 0.1, 0.25, 1],
+                  }}
                   whileHover={{
                     scale: 1.05,
-                    boxShadow: "0 10px 40px rgba(255,255,255,0.2)",
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-white text-primary-700 font-semibold rounded-lg hover:bg-primary-50 transition-colors shadow-lg cursor-pointer"
+                  className="px-8 py-4 bg-white text-primary-700 font-semibold rounded-lg hover:bg-primary-50 transition-all duration-200 shadow-lg cursor-pointer"
                 >
                   Learn About Our Impact
                 </motion.button>

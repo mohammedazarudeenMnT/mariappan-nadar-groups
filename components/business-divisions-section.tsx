@@ -102,30 +102,30 @@ export function BusinessDivisionsSection() {
         </div>
       </div>
 
-      {/* Animated corner accents */}
+      {/* Simplified corner accents */}
       <motion.div
         className="absolute top-0 right-0 w-48 sm:w-72 md:w-96 h-48 sm:h-72 md:h-96 bg-gradient-to-bl from-primary-400/10 to-transparent rounded-full blur-3xl"
         animate={{
-          scale: [1, 1.1, 1],
           opacity: [0.3, 0.5, 0.3],
         }}
         transition={{
-          duration: 7,
+          duration: 6,
           repeat: Infinity,
           ease: "easeInOut",
         }}
+        style={{ willChange: "opacity" }}
       />
       <motion.div
         className="absolute bottom-0 left-0 w-48 sm:w-72 md:w-96 h-48 sm:h-72 md:h-96 bg-gradient-to-tr from-primary-500/10 to-transparent rounded-full blur-3xl"
         animate={{
-          scale: [1.1, 1, 1.1],
           opacity: [0.5, 0.3, 0.5],
         }}
         transition={{
-          duration: 9,
+          duration: 8,
           repeat: Infinity,
           ease: "easeInOut",
         }}
+        style={{ willChange: "opacity" }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
@@ -152,13 +152,13 @@ export function BusinessDivisionsSection() {
             </div>
           </div>
 
-          <BlurFade delay={0.1}>
+          <BlurFade delay={0.05}>
             <motion.h2
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-base-900 mb-4 sm:mb-6 relative"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
             >
               Our{" "}
               <span className="bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent">
@@ -166,44 +166,25 @@ export function BusinessDivisionsSection() {
               </span>
             </motion.h2>
           </BlurFade>
-          <BlurFade delay={0.2}>
+          <BlurFade delay={0.15}>
             <motion.p
               className="text-sm sm:text-base md:text-lg lg:text-xl text-base-600 max-w-3xl mx-auto px-2"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{
+                duration: 0.4,
+                delay: 0.2,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
             >
               Three trusted divisions serving Madurai with{" "}
-              <motion.span
-                className="text-primary-600 font-semibold"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-              >
-                quality
-              </motion.span>
-              ,{" "}
-              <motion.span
-                className="text-primary-600 font-semibold"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.7 }}
-              >
-                innovation
-              </motion.span>
+              <span className="text-primary-600 font-semibold">quality</span>,{" "}
+              <span className="text-primary-600 font-semibold">innovation</span>
               , and{" "}
-              <motion.span
-                className="text-primary-600 font-semibold"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.9 }}
-              >
+              <span className="text-primary-600 font-semibold">
                 holistic care
-              </motion.span>{" "}
+              </span>{" "}
               since generations
             </motion.p>
           </BlurFade>
@@ -212,26 +193,33 @@ export function BusinessDivisionsSection() {
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
           {divisions.map((division, index) => {
             return (
-              <BlurFade key={division.title} delay={0.2 + index * 0.1}>
+              <BlurFade key={division.title} delay={0.1 + index * 0.05}>
                 <Link href={division.link} className="cursor-pointer">
                   <CardSpotlight
                     spotlightColor="rgba(28, 168, 203, 0.15)"
                     className="h-[400px] sm:h-[450px] md:h-[500px]"
                   >
                     <motion.div
-                      initial={{ opacity: 0, y: 50 }}
+                      initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.2 }}
-                      whileHover={{ y: -10, scale: 1.02 }}
-                      className="group relative h-full rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 backdrop-blur-sm"
+                      transition={{
+                        duration: 0.4,
+                        delay: index * 0.1,
+                        ease: [0.25, 0.1, 0.25, 1],
+                      }}
+                      whileHover={{ y: -6 }}
+                      className="group relative h-full rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-200 border border-gray-100 backdrop-blur-sm"
                     >
                       <motion.img
                         src={division.image}
                         alt={division.title}
                         className="w-full h-full object-cover"
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ duration: 0.7 }}
+                        whileHover={{ scale: 1.05 }}
+                        transition={{
+                          duration: 0.4,
+                          ease: [0.25, 0.1, 0.25, 1],
+                        }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
 
@@ -246,15 +234,15 @@ export function BusinessDivisionsSection() {
                             division.logoImage
                               ? "bg-white"
                               : `bg-gradient-to-br ${division.color}`
-                          } flex items-center justify-center mb-3 sm:mb-4 shadow-lg group-hover:shadow-xl transition-shadow`}
-                          initial={{ scale: 0, rotate: -180 }}
-                          whileInView={{ scale: 1, rotate: 0 }}
+                          } flex items-center justify-center mb-3 sm:mb-4 shadow-lg group-hover:shadow-xl transition-shadow duration-200`}
+                          initial={{ scale: 0.8, opacity: 0 }}
+                          whileInView={{ scale: 1, opacity: 1 }}
                           viewport={{ once: true }}
                           transition={{
-                            delay: 0.3 + index * 0.2,
-                            type: "spring",
+                            delay: 0.2 + index * 0.1,
+                            duration: 0.3,
+                            ease: [0.25, 0.1, 0.25, 1],
                           }}
-                          whileHover={{ rotate: 360 }}
                         >
                           {division.logoImage ? (
                             <div className="relative w-full h-full p-1.5">
@@ -273,24 +261,12 @@ export function BusinessDivisionsSection() {
                             })
                           ) : null}
                         </motion.div>
-                        <motion.h3
-                          className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 sm:mb-3 group-hover:text-primary-300 transition-colors"
-                          initial={{ x: -30, opacity: 0 }}
-                          whileInView={{ x: 0, opacity: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 0.4 + index * 0.2 }}
-                        >
+                        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 sm:mb-3 group-hover:text-primary-300 transition-colors duration-200">
                           {division.title}
-                        </motion.h3>
-                        <motion.p
-                          className="text-base-200 text-xs sm:text-sm leading-relaxed mb-3"
-                          initial={{ x: -30, opacity: 0 }}
-                          whileInView={{ x: 0, opacity: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 0.5 + index * 0.2 }}
-                        >
+                        </h3>
+                        <p className="text-base-200 text-xs sm:text-sm leading-relaxed mb-3">
                           {division.description}
-                        </motion.p>
+                        </p>
                         <motion.div
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}

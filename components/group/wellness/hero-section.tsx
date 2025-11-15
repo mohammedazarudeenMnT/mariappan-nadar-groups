@@ -102,16 +102,18 @@ function GlassmorphicCards() {
 
 export function WellnessHeroSection() {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-900 via-primary-900 to-slate-900 pt-32 sm:pt-24 md:pt-16 lg:pt-0 mt-12 sm:mt-8 md:mt-0">
-      {/* Glassmorphic Cards Background */}
-      <GlassmorphicCards />
+    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-900 via-primary-900 to-slate-900 flex items-center pt-20 sm:pt-24 md:pt-0">
+      {/* Glassmorphic Cards Background - Hidden on mobile/tablet */}
+      <div className="hidden lg:block">
+        <GlassmorphicCards />
+      </div>
 
       {/* Subtle vignette */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]" />
 
       {/* Main Content */}
-      <div className="relative z-10 container mx-auto px-4 py-20 md:py-28">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
+      <div className="relative z-10 container mx-auto px-4 py-16 sm:py-20 md:py-24">
+        <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -136,8 +138,10 @@ export function WellnessHeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-none">
-              <span className="block text-white mb-2">Caring for You</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight sm:leading-none">
+              <span className="block text-white mb-2 sm:mb-3">
+                Caring for You
+              </span>
               <span className="block bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600 bg-clip-text text-transparent">
                 Naturally
               </span>
@@ -149,7 +153,7 @@ export function WellnessHeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0"
           >
             Premium wellness products built with nature&apos;s finest
             ingredients. Promoting wellness through purity, tradition, and
@@ -190,25 +194,27 @@ export function WellnessHeroSection() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
-            className="mt-16 md:mt-20 relative"
+            className="mt-12 sm:mt-16 md:mt-20 relative px-2 sm:px-0"
           >
-            <div className="relative">
+            <div className="relative max-w-4xl mx-auto">
               <VideoPlayer src="https://www.youtube.com/embed/QfFV2R9TRK0?si=PKNwEa0gAm3zfj98" />
 
-              {/* BorderBeam Effect */}
-              <BorderBeam
-                size={300}
-                duration={12}
-                borderWidth={2}
-                colorFrom="hsl(var(--primary))"
-                colorTo="hsl(var(--primary) / 0.3)"
-                delay={0}
-              />
+              {/* BorderBeam Effect - Hidden on mobile */}
+              <div className="hidden sm:block">
+                <BorderBeam
+                  size={300}
+                  duration={12}
+                  borderWidth={2}
+                  colorFrom="hsl(var(--primary))"
+                  colorTo="hsl(var(--primary) / 0.3)"
+                  delay={0}
+                />
+              </div>
             </div>
 
-            {/* Subtle corner accents */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary-400/5 rounded-full blur-2xl" />
-            <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary-400/5 rounded-full blur-2xl" />
+            {/* Subtle corner accents - Hidden on mobile */}
+            <div className="hidden sm:block absolute -top-4 -right-4 w-24 h-24 bg-primary-400/5 rounded-full blur-2xl" />
+            <div className="hidden sm:block absolute -bottom-4 -left-4 w-32 h-32 bg-primary-400/5 rounded-full blur-2xl" />
           </motion.div>
         </div>
       </div>
