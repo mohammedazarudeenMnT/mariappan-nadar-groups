@@ -47,6 +47,7 @@ export const DropdownNavbar = ({ className }: DropdownNavbarProps) => {
       link: "/about",
       submenu: [
         { name: "Who We Are", link: "/about#who-we-are" },
+        { name: "Business Divisions", link: "/about#divisions" },
         { name: "Our Journey", link: "/about#our-journey" },
         { name: "Leadership", link: "/about#leadership" },
         { name: "Mission & Vision", link: "/about#mission-vision" },

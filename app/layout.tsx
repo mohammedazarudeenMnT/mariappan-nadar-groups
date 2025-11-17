@@ -18,11 +18,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://mariappanadargroup.com"),
   title: {
-    default: "Mariappa Nadar Group | Building Excellence Since 1925",
+    default: "Mariappa Nadar Group | Building Trust. Building Futures.",
     template: "%s | Mariappa Nadar Group",
   },
   description:
-    "Mariappa Nadar Group - A trusted multi-sector enterprise spanning Steel & Construction Materials, Mobile Retail (Mathi Mobiles), and Himalaya Wellness Products. Serving Madurai with quality, innovation, and integrity since 1925.",
+    "Mariappa Nadar Group - Building stronger foundations for a better tomorrow. A diversified business conglomerate with 100+ years of excellence across Construction Materials, Technology Products, Health & Wellness, and community development initiatives in Madurai, Tamil Nadu.",
   keywords: [
     "Mariappa Nadar Group",
     "Madurai business",
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://mariappanadargroup.com",
     siteName: "Mariappa Nadar Group",
-    title: "Mariappa Nadar Group | Building Excellence Since 1925",
+    title: "Mariappa Nadar Group | Building Trust. Building Futures.",
     description:
-      "A trusted multi-sector enterprise serving Madurai since 1925 with construction materials, mobile retail, and wellness products.",
+      "Building stronger foundations for a better tomorrow. 100+ years of excellence across Construction, Technology, and Wellness sectors in Madurai.",
     images: [
       {
         url: "/og-image.jpg",
@@ -60,9 +60,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mariappa Nadar Group | Building Excellence Since 1925",
+    title: "Mariappa Nadar Group | Building Trust. Building Futures.",
     description:
-      "A trusted multi-sector enterprise serving Madurai since 1925.",
+      "100+ years of excellence. Building stronger foundations for a better tomorrow.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -94,7 +94,7 @@ export default function RootLayout({
     url: "https://mariappanadargroup.com",
     logo: "https://mariappanadargroup.com/Mariyappa Group.png",
     description:
-      "A trusted multi-sector enterprise spanning Steel & Construction Materials, Mobile Retail, and Himalaya Wellness Products. Serving Madurai since 1925.",
+      "Building stronger foundations for a better tomorrow. A diversified business conglomerate with 100+ years of excellence across Construction Materials, Technology Products, Health & Wellness, and community development initiatives in Madurai, Tamil Nadu.",
     foundingDate: "1925",
     address: {
       "@type": "PostalAddress",

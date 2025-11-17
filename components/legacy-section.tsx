@@ -113,8 +113,8 @@ export function LegacySection() {
 
           <BlurFade delay={0.05}>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-base-900 mb-4 sm:mb-6 relative">
-              <AnimatedText text="Legacy &" delay={0.1} />{" "}
-              <GradientText text="Leadership" delay={0.3} />
+              <AnimatedText text="100+ Years of" delay={0.1} />{" "}
+              <GradientText text="Excellence" delay={0.3} />
             </h2>
           </BlurFade>
           <BlurFade delay={0.2}>
@@ -128,7 +128,7 @@ export function LegacySection() {
               }}
               className="text-base sm:text-lg md:text-xl text-primary-600 font-semibold relative"
             >
-              Our force of success
+              Four generations of expertise and customer trust
             </motion.p>
           </BlurFade>
         </div>
@@ -160,10 +160,10 @@ export function LegacySection() {
                 }}
               >
                 <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1 sm:mb-2">
-                  Establishing a foundation of success
+                  Building Trust. Building Futures.
                 </h3>
                 <p className="text-primary-300 font-semibold text-sm sm:text-base md:text-lg">
-                  Since 1925
+                  Since 1925 - Four Generations Strong
                 </p>
               </motion.div>
             </motion.div>

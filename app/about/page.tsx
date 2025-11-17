@@ -7,11 +7,12 @@ import { MilestonesSection } from "@/components/about/milestones-section";
 import { LeadershipSection } from "@/components/about/leadership-section";
 import { MissionVisionSection } from "@/components/about/mission-vision-section";
 import { PhilosophySection } from "@/components/about/philosophy-section";
+import { SustainabilitySection } from "@/components/sustainability-section";
 
 export const metadata: Metadata = {
-  title: "About Us | Mariappa Nadar Group - Nearly 100 Years of Excellence",
+  title: "About Us | Mariappa Nadar Group - 100+ Years of Excellence",
   description:
-    "Learn about Mariappa Nadar Group's journey since 1925. Discover our mission, vision, leadership, and commitment to quality across construction, mobile retail, and wellness sectors in Madurai.",
+    "Learn about Mariappa Nadar Group's journey since 1925. Four generations of expertise across Construction Materials, Technology Products, and Health & Wellness. Discover our mission, vision, leadership, and commitment to sustainability and community development in Madurai.",
   keywords: [
     "about Mariappa Nadar Group",
     "company history",
@@ -59,6 +60,7 @@ export default function AboutPage() {
       <LeadershipSection />
       <MissionVisionSection />
       <PhilosophySection />
+      <SustainabilitySection />
     </div>
   );
 }

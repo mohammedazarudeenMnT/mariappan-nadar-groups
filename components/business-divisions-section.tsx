@@ -12,9 +12,9 @@ const divisions = [
   {
     icon: null,
     logoImage: "/images/construction/MNBS Logo background erased.png",
-    title: "Steel & Construction",
+    title: "Construction Materials",
     description:
-      "Premium TMT bars, mild steel, cement, and construction materials for building Madurai's future.",
+      "Mariappa Nadar Building Solutions - Wholesale and retail supply of TMT Steel Bars, Cement, Waterproofing Materials, Construction Chemicals, and Electrical Pipes. Uninterrupted supply-chain reliability for contractors, builders, and home builders.",
     image:
       "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=600&fit=crop",
     color: "from-primary-500 to-primary-600",
@@ -25,7 +25,7 @@ const divisions = [
     logoImage: "/images/mathi-mobiles.png",
     title: "Mathi Mobiles",
     description:
-      "Multi-brand smartphones, accessories, and expert repair services with reliable after-sales support.",
+      "Technology Products Division - Budget to premium smartphones, Tabs, Laptops, Chargers, Smartwatches with comprehensive after-sales assistance and customer support. Combining technology and trust.",
     image:
       "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&h=600&fit=crop",
     color: "from-primary-600 to-primary-700",
@@ -36,7 +36,7 @@ const divisions = [
     logoImage: "/images/himalaya_wellness/himalaya.avif",
     title: "Himalaya Wellness",
     description:
-      "Health and wellness products for every family - from skincare to baby care and oral hygiene.",
+      "Health & Wellness Products - Authorized franchisee offering curated range of certified wellness and lifestyle products from Himalaya. Encouraging healthier living through safe, accessible, and high-quality options.",
     image:
       "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=800&h=600&fit=crop",
     color: "from-primary-400 to-primary-500",

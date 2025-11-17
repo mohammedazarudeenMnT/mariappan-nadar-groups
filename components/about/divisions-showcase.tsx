@@ -7,12 +7,12 @@ import Link from "next/link";
 const divisions = [
   {
     id: 1,
-    title: "Construction Materials",
+    title: "Construction Materials Division",
     previewContent: (
       <div className="space-y-3">
         <div className="inline-block px-3 py-1 bg-primary-500/20 rounded-full mb-2">
           <span className="text-primary-300 text-xs font-semibold">
-            Building & Construction
+            Mariappa Nadar Building Solutions
           </span>
         </div>
         <h3 className="font-bold text-2xl md:text-3xl text-white">
@@ -30,27 +30,36 @@ const divisions = [
       <div className="space-y-3">
         <div className="inline-block px-3 py-1 bg-primary-500/20 rounded-full mb-2">
           <span className="text-primary-300 text-xs font-semibold">
-            Building & Construction
+            Mariappa Nadar Building Solutions
           </span>
         </div>
         <h3 className="font-bold text-2xl md:text-3xl text-white">
           Construction Materials
         </h3>
         <p className="text-sm text-neutral-300 leading-relaxed">
-          Premium quality construction materials for residential and commercial
-          projects. Trusted by contractors and builders across Tamil Nadu.
+          Wholesale and retail supply of premium construction materials.
+          Uninterrupted supply-chain reliability for contractors, builders, and
+          home builders.
         </p>
         <div className="space-y-2 pt-2">
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full bg-primary-400" />
+            <span className="text-xs text-neutral-300">TMT Steel Bars</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-primary-400" />
+            <span className="text-xs text-neutral-300">Cement</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-primary-400" />
             <span className="text-xs text-neutral-300">
-              High-grade cement and steel
+              Waterproofing Materials
             </span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full bg-primary-400" />
             <span className="text-xs text-neutral-300">
-              Complete building materials
+              Construction Chemicals & Electrical Pipes
             </span>
           </div>
         </div>
@@ -68,15 +77,15 @@ const divisions = [
   },
   {
     id: 2,
-    title: "Mathi Mobiles",
+    title: "Mobile Retail & Technology",
     previewContent: (
       <div className="space-y-2">
         <div className="inline-block px-3 py-1 bg-primary-500/20 rounded-full mb-1">
           <span className="text-primary-300 text-xs font-semibold">
-            Technology & Retail
+            Mathi Mobiles
           </span>
         </div>
-        <h3 className="font-bold text-xl text-white">Mathi Mobiles</h3>
+        <h3 className="font-bold text-xl text-white">Technology Products</h3>
         <Link href="/group/mathi-mobiles" className="cursor-pointer">
           <button className="mt-3 inline-flex items-center gap-2 text-white text-sm font-semibold hover:gap-3 transition-all cursor-pointer">
             Learn More
@@ -89,24 +98,33 @@ const divisions = [
       <div className="space-y-2">
         <div className="inline-block px-3 py-1 bg-primary-500/20 rounded-full mb-1">
           <span className="text-primary-300 text-xs font-semibold">
-            Technology & Retail
+            Mathi Mobiles
           </span>
         </div>
-        <h3 className="font-bold text-xl text-white">Mathi Mobiles</h3>
+        <h3 className="font-bold text-xl text-white">Technology Products</h3>
         <p className="text-xs text-neutral-300 leading-relaxed">
-          Latest smartphones, accessories, and mobile technology solutions.
-          Authorized dealer for leading brands.
+          Budget to premium smartphones, Tabs, Laptops, Chargers, and
+          Smartwatches. Combining technology and trust with comprehensive
+          after-sales support.
         </p>
         <div className="space-y-1.5 pt-1">
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full bg-primary-400" />
             <span className="text-xs text-neutral-300">
-              Latest smartphone models
+              Budget to Premium Smartphones
             </span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full bg-primary-400" />
-            <span className="text-xs text-neutral-300">Expert guidance</span>
+            <span className="text-xs text-neutral-300">
+              Tabs, Laptops & Smartwatches
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-primary-400" />
+            <span className="text-xs text-neutral-300">
+              After-sales assistance
+            </span>
           </div>
         </div>
         <Link href="/group/mathi-mobiles" className="cursor-pointer">
@@ -123,15 +141,15 @@ const divisions = [
   },
   {
     id: 3,
-    title: "Himalaya Wellness",
+    title: "Health & Wellness Products",
     previewContent: (
       <div className="space-y-2">
         <div className="inline-block px-3 py-1 bg-primary-500/20 rounded-full mb-1">
           <span className="text-primary-300 text-xs font-semibold">
-            Health & Wellness
+            Himalaya Wellness (Franchisee)
           </span>
         </div>
-        <h3 className="font-bold text-xl text-white">Himalaya Wellness</h3>
+        <h3 className="font-bold text-xl text-white">Wellness Products</h3>
         <Link href="/group/himalaya-wellness" className="cursor-pointer">
           <button className="mt-3 inline-flex items-center gap-2 text-white text-sm font-semibold hover:gap-3 transition-all cursor-pointer">
             Learn More
@@ -144,25 +162,32 @@ const divisions = [
       <div className="space-y-2">
         <div className="inline-block px-3 py-1 bg-primary-500/20 rounded-full mb-1">
           <span className="text-primary-300 text-xs font-semibold">
-            Health & Wellness
+            Himalaya Wellness (Franchisee)
           </span>
         </div>
-        <h3 className="font-bold text-xl text-white">Himalaya Wellness</h3>
+        <h3 className="font-bold text-xl text-white">Wellness Products</h3>
         <p className="text-xs text-neutral-300 leading-relaxed">
-          Trusted healthcare and wellness products from Himalaya. Committed to
-          promoting health and well-being in our community.
+          Authorized franchisee offering curated range of certified wellness and
+          lifestyle products. Encouraging healthier living through safe,
+          accessible, and high-quality options.
         </p>
         <div className="space-y-1.5 pt-1">
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full bg-primary-400" />
             <span className="text-xs text-neutral-300">
-              Herbal healthcare products
+              Certified wellness products
             </span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full bg-primary-400" />
             <span className="text-xs text-neutral-300">
-              Personal care range
+              Lifestyle & personal care
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-primary-400" />
+            <span className="text-xs text-neutral-300">
+              Safe & accessible options
             </span>
           </div>
         </div>
@@ -182,7 +207,10 @@ const divisions = [
 
 export function DivisionsShowcase() {
   return (
-    <section className="relative py-24 bg-primary-50/10 dark:bg-neutral-950 overflow-hidden">
+    <section
+      id="divisions"
+      className="relative py-24 bg-primary-50/10 dark:bg-neutral-950 overflow-hidden scroll-mt-20"
+    >
       {/* Aurora Background Effect */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-primary-400/20 via-primary-300/10 to-transparent rounded-full blur-3xl animate-pulse" />
       <div

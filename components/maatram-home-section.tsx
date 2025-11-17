@@ -13,17 +13,31 @@ import Image from "next/image";
 const focusAreas = [
   {
     icon: IconSchool,
-    title: "Education Programs",
+    title: "Educational Assistance",
     description:
-      "Empowering students through scholarships, tutoring, and educational resources to build a brighter future for our community.",
+      "Supporting students through scholarships, educational resources, and youth development programs to build a brighter future for our community.",
     stats: "500+ Students Supported",
   },
   {
     icon: IconStethoscope,
-    title: "Healthcare Services",
+    title: "Healthcare & Wellness",
     description:
-      "Providing free medical camps, health screenings, and essential healthcare services to underserved communities.",
+      "Providing medical assistance, health screenings, and essential healthcare services to underserved communities across Madurai.",
     stats: "1000+ Lives Impacted",
+  },
+  {
+    icon: IconSchool,
+    title: "Women Empowerment",
+    description:
+      "Dedicated programs for women's skill development, entrepreneurship support, and creating equal opportunities for growth.",
+    stats: "Women-Led Initiatives",
+  },
+  {
+    icon: IconSchool,
+    title: "Community Upliftment",
+    description:
+      "Comprehensive community development activities focused on sustainable growth and improving quality of life.",
+    stats: "Multiple Communities",
   },
 ];
 
@@ -103,15 +117,23 @@ export function MaatramHomeSection() {
                 transition={{ delay: 0.5 }}
                 className="text-lg md:text-xl text-slate-200 mb-8 leading-relaxed font-light"
               >
-                Transforming lives through{" "}
+                Supporting{" "}
                 <span className="text-primary-400 font-semibold">
-                  education
-                </span>{" "}
-                and{" "}
+                  educational assistance
+                </span>
+                ,{" "}
                 <span className="text-primary-400 font-semibold">
-                  healthcare
-                </span>{" "}
-                initiatives.
+                  women empowerment
+                </span>
+                ,{" "}
+                <span className="text-primary-400 font-semibold">
+                  community upliftment
+                </span>
+                , and{" "}
+                <span className="text-primary-400 font-semibold">
+                  youth development
+                </span>
+                .
               </motion.p>
 
               {/* Decorative Line */}
@@ -124,7 +146,7 @@ export function MaatramHomeSection() {
               />
 
               {/* Focus Areas Cards */}
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                 {focusAreas.map((area, index) => {
                   const Icon = area.icon;
                   return (

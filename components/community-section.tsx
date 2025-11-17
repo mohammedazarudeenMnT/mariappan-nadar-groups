@@ -9,8 +9,8 @@ import { CardSpotlight } from "@/components/ui/card-spotlight";
 import Link from "next/link";
 
 const stats = [
-  { number: 100, suffix: "+", label: "Years of Trust", icon: Sparkles },
-  { number: 50000, suffix: "+", label: "Happy Customers", icon: Users },
+  { number: 100, suffix: "+", label: "Years of Excellence", icon: Sparkles },
+  { number: 4, suffix: "", label: "Generations Strong", icon: Users },
   { number: 3, suffix: "", label: "Business Divisions", icon: Heart },
 ];
 
@@ -126,9 +126,13 @@ export function CommunitySection() {
                 ease: [0.25, 0.1, 0.25, 1],
               }}
             >
-              At Mariappa Nadar Group, we believe that success goes beyond
-              business. It encompasses our shared responsibility to enable a
-              sustainable way of life for all sections of society.
+              At Mariappa Nadar Group, we believe that{" "}
+              <span className="font-semibold text-white">
+                business grows when communities grow
+              </span>
+              . Our success goes beyond business metrics — it encompasses our
+              shared responsibility to enable a sustainable way of life for all
+              sections of society.
             </motion.p>
           </BlurFade>
         </div>

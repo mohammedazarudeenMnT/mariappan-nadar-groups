@@ -4,10 +4,12 @@ import { motion } from "motion/react";
 
 const tabs = [
   { id: "who-we-are", label: "Who We Are" },
+  { id: "divisions", label: "Business Divisions" },
   { id: "milestones", label: "Our Journey" },
   { id: "leadership", label: "Leadership" },
   { id: "mission-vision", label: "Mission & Vision" },
   { id: "philosophy", label: "Philosophy" },
+  { id: "sustainability", label: "Sustainability" },
 ];
 
 export function TabNavigation() {

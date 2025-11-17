@@ -16,7 +16,7 @@ interface AboutHeroSectionProps {
 
 export function AboutHeroSection({
   title = "Our Story",
-  description = "A trusted multi-sector enterprise built on nearly a century of excellence. Anchored by an extraordinary commitment to quality, integrity, and community service across construction, mobile retail, and wellness sectors.",
+  description = "A diversified business conglomerate with 100+ years of excellence. Building stronger foundations for a better tomorrow through Construction Materials, Technology Products, Health & Wellness, and community development initiatives.",
   breadcrumb = "Home ❯ Our Story",
   logoText = "MN",
   backgroundImage = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop",

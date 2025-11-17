@@ -3,51 +3,50 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { BlurFade } from "@/components/ui/blur-fade";
 import {
-  Shield,
-  Heart,
+  Award,
+  Layers,
+  MapPin,
   Users,
-  Lightbulb,
-  Target,
-  Handshake,
+  Leaf,
+  TrendingUp,
 } from "lucide-react";
-import GridPattern from "@/components/ui/grid-pattern";
 
 const coreValues = [
   {
-    icon: Shield,
-    title: "Integrity",
+    icon: Award,
+    title: "Reliability in Every Step",
     description:
-      "Upholding the highest standards of honesty and ethical conduct in all our dealings",
+      "100+ years of experience, 4 generations of expertise and customer trust across all business segments.",
   },
   {
-    icon: Heart,
-    title: "Commitment",
+    icon: Layers,
+    title: "Diversified Expertise",
     description:
-      "Dedicated to excellence and going above and beyond for our customers",
+      "Presence across construction, technology, wellness, and social impact sectors.",
+  },
+  {
+    icon: MapPin,
+    title: "Strong Regional Network",
+    description:
+      "Deeply rooted supply-chain and retail ecosystem in Madurai, Tamil Nadu.",
   },
   {
     icon: Users,
-    title: "Community",
+    title: "Customer-Centric Service",
     description:
-      "Building lasting relationships and contributing to societal growth",
+      "From doorstep delivery of materials, to personalized customer portal for easy access to bills and ledgers, to personalized tech support — we place customers first.",
   },
   {
-    icon: Lightbulb,
-    title: "Innovation",
+    icon: Leaf,
+    title: "Sustainable & Ethical",
     description:
-      "Embracing change and continuously improving our products and services",
+      "Committed to responsible sourcing, renewable energy (90% solar), women empowerment (50% workforce), and fair business practices.",
   },
   {
-    icon: Target,
-    title: "Excellence",
+    icon: TrendingUp,
+    title: "Growth-Oriented",
     description:
-      "Striving for the best in quality, service, and customer satisfaction",
-  },
-  {
-    icon: Handshake,
-    title: "Trust",
-    description:
-      "Building confidence through reliability, transparency, and consistent delivery",
+      "Continuous innovation and expansion while maintaining our core values and commitment to quality.",
   },
 ];
 
@@ -126,8 +125,7 @@ export function PhilosophySection() {
                   transition={{ delay: 0.5 }}
                   className="text-2xl md:text-3xl text-slate-200 mb-6 leading-relaxed font-light"
                 >
-                  To enrich lives and build stronger communities by delivering
-                  quality products and services with integrity.
+                  Building Trust. Building Futures.
                 </motion.p>
 
                 <motion.p
@@ -137,9 +135,11 @@ export function PhilosophySection() {
                   transition={{ delay: 0.7 }}
                   className="text-xl md:text-2xl text-slate-300 leading-relaxed font-light"
                 >
-                  Our success goes beyond business metrics — it encompasses our
-                  shared responsibility to enable a sustainable way of life for
-                  all sections of society.
+                  To enrich lives and build stronger communities by delivering
+                  quality products and services with integrity. Our success goes
+                  beyond business metrics — it encompasses our shared
+                  responsibility to enable a sustainable way of life for all
+                  sections of society.
                 </motion.p>
 
                 {/* Decorative Line */}
@@ -209,56 +209,30 @@ export function PhilosophySection() {
             </div>
           </div>
 
-          {/* Philosophy Pillars */}
-          <BlurFade delay={0.8}>
+     
+        
+
+          {/* Commitment Statement */}
+          <BlurFade delay={1.6}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-primary-100"
+              className="mt-8 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 rounded-2xl p-8 md:p-12 text-center text-white shadow-2xl"
             >
-              <h3 className="text-3xl font-bold text-center text-base-900 mb-8">
-                Our Guiding Principles
+              <h3 className="text-3xl md:text-4xl font-bold mb-4">
+                Our Commitment
               </h3>
-              <div className="grid md:grid-cols-3 gap-8">
-                <div className="text-center">
-                  <div className="text-5xl font-bold text-primary-600 mb-3">
-                    01
-                  </div>
-                  <h4 className="text-xl font-bold text-base-900 mb-2">
-                    Customer First
-                  </h4>
-                  <p className="text-base-600">
-                    Every decision we make is guided by what&apos;s best for our
-                    customers and their needs
-                  </p>
-                </div>
-                <div className="text-center">
-                  <div className="text-5xl font-bold text-primary-600 mb-3">
-                    02
-                  </div>
-                  <h4 className="text-xl font-bold text-base-900 mb-2">
-                    Quality Always
-                  </h4>
-                  <p className="text-base-600">
-                    We never compromise on quality, ensuring excellence in every
-                    product and service
-                  </p>
-                </div>
-                <div className="text-center">
-                  <div className="text-5xl font-bold text-primary-600 mb-3">
-                    03
-                  </div>
-                  <h4 className="text-xl font-bold text-base-900 mb-2">
-                    Community Impact
-                  </h4>
-                  <p className="text-base-600">
-                    We measure success by the positive impact we create in our
-                    community
-                  </p>
-                </div>
-              </div>
+              <p className="text-lg md:text-xl text-primary-100 leading-relaxed max-w-4xl mx-auto">
+                At Mariappa Nadar Group, we believe in creating value that
+                stands the test of time. Whether it is through stronger
+                materials, smarter technology, cleaner energy, or empowered
+                communities — we are dedicated to{" "}
+                <span className="font-bold text-white">
+                  building stronger foundations for a better tomorrow
+                </span>
+                .
+              </p>
             </motion.div>
           </BlurFade>
         </div>

@@ -62,23 +62,33 @@ export function WhoWeAreSection() {
                 Building Trust Since 1925
               </h3>
               <p className="text-base sm:text-lg text-base-600 leading-relaxed">
-                The Mariappa Nadar Group stands as a testament to enduring
-                values, unwavering commitment, and visionary leadership. Founded
-                nearly a century ago by P.S.M. Mariappa Nadar, what began as a
-                modest trading firm in Madurai has evolved into a trusted
-                multi-sector enterprise.
+                Mariappa Nadar Group is a diversified business conglomerate
+                headquartered in Madurai, Tamil Nadu, India. With a strong
+                legacy of excellence spanning over 100 years and four
+                generations, the Group operates across multiple industries
+                including Construction Materials, Technology Products, Health
+                and Wellness, and community development initiatives.
               </p>
               <p className="text-base sm:text-lg text-base-600 leading-relaxed">
-                Today, under the leadership of Rajalakshmi, we continue to
-                uphold the founding principles of integrity, excellence, and
-                community service. Our three core divisions—Construction
-                Materials, Mathi Mobiles, and Himalaya Wellness—serve thousands
-                of customers across Tamil Nadu.
+                For decades, we have built our reputation on{" "}
+                <span className="font-semibold text-primary-600">trust</span>,{" "}
+                <span className="font-semibold text-primary-600">quality</span>,
+                and{" "}
+                <span className="font-semibold text-primary-600">
+                  service excellence
+                </span>{" "}
+                — values that continue to guide every business we operate. Today,
+                under the leadership of Rajalakshmi, we continue this legacy of
+                purposeful leadership.
               </p>
               <p className="text-base sm:text-lg text-base-600 leading-relaxed">
-                We are more than a business; we are a part of the community
-                fabric, committed to contributing to the growth and prosperity
-                of the region we call home.
+                Our philosophy is simple:{" "}
+                <span className="font-semibold text-primary-600">
+                  business grows when communities grow
+                </span>
+                . We are committed to creating value that stands the test of
+                time through stronger materials, smarter technology, cleaner
+                energy, and empowered communities.
               </p>
             </motion.div>
           </BlurFade>
