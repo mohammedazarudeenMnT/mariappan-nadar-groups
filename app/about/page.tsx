@@ -7,7 +7,6 @@ import { MilestonesSection } from "@/components/about/milestones-section";
 import { LeadershipSection } from "@/components/about/leadership-section";
 import { MissionVisionSection } from "@/components/about/mission-vision-section";
 import { PhilosophySection } from "@/components/about/philosophy-section";
-import { SustainabilitySection } from "@/components/sustainability-section";
 
 export const metadata: Metadata = {
   title: "About Us | Mariappa Nadar Group - 100+ Years of Excellence",
@@ -60,7 +59,6 @@ export default function AboutPage() {
       <LeadershipSection />
       <MissionVisionSection />
       <PhilosophySection />
-      <SustainabilitySection />
     </div>
   );
 }

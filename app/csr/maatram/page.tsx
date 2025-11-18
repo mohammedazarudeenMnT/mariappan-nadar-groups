@@ -40,6 +40,7 @@ export const metadata: Metadata = {
 import { MaatramHeroSection } from "@/components/maatram/hero-section";
 import { MissionVisionSection } from "@/components/maatram/mission-vision-section";
 import { InitiativesSection } from "@/components/maatram/initiatives-section";
+import { SustainabilitySection } from "@/components/sustainability-section";
 import { StoriesOfImpactSection } from "@/components/maatram/stories-of-impact-section";
 import { TestimonialsSection } from "@/components/maatram/testimonials-section";
 import { CTASection } from "@/components/maatram/cta-section";
@@ -55,6 +56,9 @@ export default function MaatramPage() {
 
       {/* Our Initiatives */}
       <InitiativesSection />
+
+      {/* Sustainability & People-Focused Initiatives */}
+      <SustainabilitySection />
 
       {/* Stories of Impact */}
       <StoriesOfImpactSection />

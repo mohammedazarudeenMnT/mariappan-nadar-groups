@@ -9,7 +9,6 @@ const tabs = [
   { id: "leadership", label: "Leadership" },
   { id: "mission-vision", label: "Mission & Vision" },
   { id: "philosophy", label: "Philosophy" },
-  { id: "sustainability", label: "Sustainability" },
 ];
 
 export function TabNavigation() {

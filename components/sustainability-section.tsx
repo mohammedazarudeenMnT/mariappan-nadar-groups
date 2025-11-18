@@ -2,7 +2,7 @@
 import React from "react";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { motion } from "motion/react";
-import { Sun, Users2, Shield, Clock, FileCheck, Leaf, ArrowRight } from "lucide-react";
+import { Sun, Users2, Shield, Clock, FileCheck, Leaf } from "lucide-react";
 
 const initiatives = [
   {
@@ -132,11 +132,10 @@ export function SustainabilitySection() {
                     scale: 1.02,
                     transition: { type: "spring", stiffness: 200, damping: 10 },
                   }}
-                  className="group relative min-h-[320px] flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-lg hover:shadow-2xl transition-all"
+                  className="group relative min-h-[320px] flex flex-col overflow-hidden rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-card via-card to-primary/5 shadow-lg hover:shadow-2xl hover:border-primary/40 transition-all"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary/80 opacity-90" />
-                  <div className="relative z-10 p-6 flex flex-col h-full text-primary-foreground">
-                    {/* Icon */}
+                  <div className="relative z-10 p-6 flex flex-col h-full">
+                    {/* Icon with gradient background */}
                     <motion.div
                       initial={{ rotate: -180, scale: 0 }}
                       whileInView={{ rotate: 0, scale: 1 }}
@@ -145,24 +144,26 @@ export function SustainabilitySection() {
                         delay: 0.3 + index * 0.1,
                         type: "spring",
                       }}
+                      className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center mb-6 shadow-lg"
                     >
-                      <Icon className="w-10 h-10 opacity-80 mb-4" />
+                      <Icon className="w-7 h-7 text-primary-foreground" />
                     </motion.div>
 
                     {/* Content */}
                     <div className="flex-1 mb-4">
-                      <div className="text-5xl font-bold drop-shadow-md mb-3">
+                      <div className="text-5xl font-bold bg-gradient-to-br from-primary to-primary/70 bg-clip-text text-transparent mb-3">
                         {item.stat}
                       </div>
-                      <p className="text-base font-bold uppercase tracking-wide opacity-95 mb-2">
+                      <p className="text-base font-bold uppercase tracking-wide text-foreground mb-2">
                         {item.title}
                       </p>
-                      <p className="text-sm leading-relaxed opacity-90">
+                      <p className="text-sm leading-relaxed text-muted-foreground">
                         {item.description}
                       </p>
                     </div>
 
-                   
+                    {/* Decorative element */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-2xl -z-10" />
                   </div>
                 </motion.div>
               </BlurFade>
